@@ -9,6 +9,29 @@ describe('Player', function () {
 
   after(helper.disconnect);
 
+  it('must have a name', function (done) {
+    var noName = new Player();
+
+    return noName.save().then(function() {
+      done(new Error('expect rejected promise from noName.save()'))
+    }, function(err) {
+      done();
+    });
+  });
+
+  it('cannot have duplicate names', function (done) {
+    var bob = new Player({name: 'bob'});
+    var otherBob = new Player({name: 'bob'});
+
+    return bob.save().then(function() {
+      return otherBob.save();
+    }).then(function() {
+      done(new Error('expect rejected promise from otherBob.save()'))
+    }, function(err) {
+      done();
+    });
+  });
+
   describe('newly created', function () {
     it('has elo of 1200', function () {
       var p = new Player({name: 'bob'});
@@ -181,19 +204,6 @@ describe('Player', function () {
         assert.equal(leaderboard[0].name, 'adam');
         assert.equal(leaderboard[1].name, 'bob');
       });
-    });
-  });
-
-  it('cannot have duplicate names', function (done) {
-    var bob = new Player({name: 'bob'});
-    var otherBob = new Player({name: 'bob'});
-
-    return bob.save().then(function() {
-      return otherBob.save();
-    }).then(function() {
-      done(new Error('expect rejected promise from otherBob.save()'))
-    }, function(err) {
-      done();
     });
   });
 });
