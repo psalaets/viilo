@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/*-test.js",
+    "prestart": "npm install",
     "start": "node server.js"
   },
   "author": "",
