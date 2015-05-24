@@ -8,6 +8,14 @@
 
 <h2>Add Player</h2>
 
+{{#if success}}
+Success: {{success}}
+{{/if}}
+
+{{#if error}}
+Error: {{error}}
+{{/if}}
+
 <form action="/players" method="POST">
     <label>
         Name

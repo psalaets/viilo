@@ -3,8 +3,27 @@ var Player = require('./lib/player');
 var Result = require('./lib/result');
 
 var express = require('express');
-var app = express();
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
 var bodyParser = require('body-parser');
+
+var app = express();
+
+/*********************
+Config
+**********************/
+
+// middleware for flash messages
+// https://gist.github.com/tpblanke/11061808
+app.use(cookieParser('secretasdf'));
+app.use(session({
+  cookie: { maxAge: 60000 },
+  resave: false,
+  saveUninitialized: false,
+  secret: 'secretasdf'
+}));
+app.use(flash());
 
 // hbs will render templates that are in view/
 app.set('view engine', 'hbs');
@@ -14,6 +33,10 @@ app.use('/static', express.static('public'));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
+
+/*********************
+Routes
+**********************/
 
 app.get('/', function(req, resp, next) {
   Player.leaderboard().then(function(players) {
@@ -26,7 +49,9 @@ app.get('/', function(req, resp, next) {
 app.get('/players', function(req, resp) {
   Player.list().then(function(players) {
     resp.render('players', {
-      players: renderPlayers(players)
+      players: renderPlayers(players),
+      success: req.flash('success'),
+      error: req.flash('error')
     });
   });
 });
@@ -40,8 +65,10 @@ app.post('/players', function(req, resp) {
   };
 
   Player.create(player).then(function() {
+    req.flash('success', 'Added ' + name);
     resp.redirect('/players');
   }, function(error) {
+    req.flash('error', 'Could not add ' + name);
     resp.redirect('/players');
   });
 });
@@ -85,7 +112,9 @@ function renderPlayers(players) {
   });
 }
 
-// connect to db and launch server
+/*******************************
+Connect to DB and launch server
+*******************************/
 
 connectToDb(function(err) {
   if (err) throw err;
