@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Players</title>
+</head>
+<body>
+
+<h2>Add Player</h2>
+
+<form action="/players" method="POST">
+    <label>
+        Name
+        <input type="text" name="name">
+    </label>
+    <input type="submit" value="Add">
+</form>
+
+<h2>Players</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  {{#each players}}
+    <tr>
+      <td>{{name}}</td>
+    </tr>
+  {{/each}}
+</table>
+
+</body>
+</html>

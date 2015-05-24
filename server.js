@@ -12,8 +12,8 @@ app.set('view engine', 'hbs');
 // public/foo.css is served at <host:port>/static/foo.css
 app.use('/static', express.static('public'));
 
-// parse json of request bodies, this populates req.body in handlers
-app.use(bodyParser.json());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function(req, resp, next) {
   Player.leaderboard().then(function(players) {
@@ -23,34 +23,26 @@ app.get('/', function(req, resp, next) {
   });
 });
 
-app.get('/leaderboard', function(req, resp) {
-  Player.leaderboard().then(function(leaderboard) {
-    resp.send({
-      players: leaderboard
-    });
-  });
-});
-
 app.get('/players', function(req, resp) {
   Player.list().then(function(players) {
-    resp.send({
-      players: players
+    resp.render('players', {
+      players: renderPlayers(players)
     });
   });
 });
 
 app.post('/players', function(req, resp) {
-  var player = req.body;
+  var body = req.body;
+  var name = body.name;
 
-  // don't let anything else but name be set on create
-  player = {
-    name: player.name
+  var player = {
+    name: name
   };
 
   Player.create(player).then(function() {
-    resp.status(200).end();
+    resp.redirect('/players');
   }, function(error) {
-    resp.status(500).send(error.message);
+    resp.redirect('/players');
   });
 });
 
