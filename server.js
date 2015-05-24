@@ -15,10 +15,10 @@ app.use('/static', express.static('public'));
 // parse json of request bodies, this populates req.body in handlers
 app.use(bodyParser.json());
 
-app.get('/', function(req, resp) {
+app.get('/', function(req, resp, next) {
   Player.leaderboard().then(function(players) {
     resp.render('leaderboard', {
-      players: players
+      players: players.map(function(p) {return p.toObject();})
     });
   });
 });

@@ -238,4 +238,8 @@ describe('Player', function () {
       });
     });
   });
+
+  describe('#toObject()', function () {
+    it('lots of stuff here');
+  });
 });
