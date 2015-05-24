@@ -6,10 +6,22 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
-// serve front-end
-app.use(express.static('public'));
+// hbs will render templates that are in view/
+app.set('view engine', 'hbs');
+
+// public/foo.css is served at <host:port>/static/foo.css
+app.use('/static', express.static('public'));
+
 // parse json of request bodies, this populates req.body in handlers
 app.use(bodyParser.json());
+
+app.get('/', function(req, resp) {
+  Player.leaderboard().then(function(players) {
+    resp.render('index', {
+      players: players
+    });
+  });
+});
 
 app.get('/leaderboard', function(req, resp) {
   Player.leaderboard().then(function(leaderboard) {

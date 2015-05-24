@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>viilo</title>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>Name</th>
+    <th>ELO</th>
+    <th>Wins</th>
+    <th>Losses</th>
+    <th>Streak</th>
+    <th>Last 10</th>
+  </tr>
+  {{#each players}}
+    <tr>
+      <td>{{id}}</td>
+      <td>{{name}}</td>
+      <td>{{elo}}</td>
+      <td>{{wins}}</td>
+      <td>{{losses}}</td>
+      <td>{{streak}}</td>
+      <td>{{lastTen}}</td>
+    </tr>
+  {{/each}}
+</table>
+
+</body>
+</html>
