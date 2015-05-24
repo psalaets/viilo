@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Player = require('./lib/player');
+var Result = require('./lib/result');
 
 var express = require('express');
 var app = express();
@@ -38,6 +39,14 @@ app.post('/players', function(req, resp) {
     resp.status(200).end();
   }, function(error) {
     resp.status(500).send(error.message);
+  });
+});
+
+app.get('/results', function(req, resp) {
+  Result.recent().then(function(results) {
+    resp.send({
+      results: results
+    });
   });
 });
 
