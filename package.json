@@ -21,6 +21,9 @@
     "mongoose": "4.0.3"
   },
   "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-sass": "^2.0.1",
     "mocha": "^2.2.5"
   }
 }

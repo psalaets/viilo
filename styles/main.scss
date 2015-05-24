@@ -1,0 +1,30 @@
+// Let's get this shit going, ITCSS tyme
+// Settings: Global variables, config switches.
+$base-font-size: 16px;
+$background-color: rgba(246, 246, 246, 1);
+// Tools: Default mixins and functions.
+// Generic: Ground-zero styles (Normalize.css, resets, box-sizing).
+// Base: Unclassed HTML elements (type selectors).
+html {
+  font-size: $base-font-size;
+}
+body {
+  background-color: $background-color;
+}
+
+// Objects: Cosmetic-free design patterns.
+// Components: Designed components, chunks of UI.
+[jumbotron] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+}
+[leaderboard] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+// Trumps: Helpers and overrides.

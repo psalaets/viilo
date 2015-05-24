@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>viilo</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="static/bower-packages/normalize.css/normalize.css">
+  <link rel="stylesheet" href="static/main.css">
+
+  <title>ViiLo</title>
 </head>
 <body>
 
-<table>
-  <tr>
-    <th>id</th>
-    <th>Name</th>
-    <th>ELO</th>
-    <th>Wins</th>
-    <th>Losses</th>
-    <th>Streak</th>
-    <th>Last 10</th>
-  </tr>
-  {{#each players}}
-    <tr>
-      <td>{{id}}</td>
-      <td>{{name}}</td>
-      <td>{{elo}}</td>
-      <td>{{wins}}</td>
-      <td>{{losses}}</td>
-      <td>{{streak}}</td>
-      <td>{{lastTen}}</td>
-    </tr>
-  {{/each}}
-</table>
+  <div jumbotron>
+    <h1>ViiLo</h1>
+  </div>
+
+  <div leaderboard>
+    {{#each players}}
+    <div class="player-row">
+      {{name}}
+      {{elo}}
+      {{wins}}
+      {{losses}}
+      {{streak}}
+      {{lastTen}}
+      {{id}}
+    </div>
+    {{/each}}
+  </div>
 
 </body>
 </html>
