@@ -8,7 +8,7 @@
 
 `brew install mongodb`
 
-#### 2. pull down node modules
+### 2. pull down node modules
 
 `npm install`
 
