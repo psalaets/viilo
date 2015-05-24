@@ -163,11 +163,36 @@ describe('Player', function () {
       assert('gamesPlayed' in restored);
     });
   });
-});
 
-/*
-- JSON includes games played
-- .leaderboard
-- .list
-- .result
-*/
+  describe('.leaderboard()', function () {
+    it('lists players by descending elo rating', function () {
+      var adam = new Player({name: 'adam', elo: 500});
+      var bob = new Player({name: 'bob', elo: 700});
+
+      return adam.save().then(function() {
+        return bob.save();
+      }).then(function() {
+        return Player.leaderboard();
+      }).then(function(leaderboard) {
+        assert.equal(leaderboard[0].name, 'bob');
+        assert.equal(leaderboard[1].name, 'adam');
+      });
+    });
+  });
+
+  describe('.list()', function () {
+    it('lists players by name in abc order', function () {
+      var adam = new Player({name: 'adam'});
+      var bob = new Player({name: 'bob'});
+
+      return bob.save().then(function() {
+        return adam.save();
+      }).then(function() {
+        return Player.list();
+      }).then(function(leaderboard) {
+        assert.equal(leaderboard[0].name, 'adam');
+        assert.equal(leaderboard[1].name, 'bob');
+      });
+    });
+  });
+});
