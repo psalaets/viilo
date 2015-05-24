@@ -12,6 +12,16 @@
 
 `npm install`
 
+## Running server
+
+Start mongo
+
+`mongod`
+
+In another terminal
+
+`npm start`
+
 ## Running tests
 
 Start mongo

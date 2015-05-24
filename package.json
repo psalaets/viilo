@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/*-test.js"
+    "test": "mocha test/*-test.js",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "elo-rank": "0.2.2",
+    "express": "4.12.4",
     "mongoose": "4.0.3"
   },
   "devDependencies": {
