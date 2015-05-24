@@ -1,25 +1,13 @@
 var assert = require('assert');
-var mongoose = require('mongoose');
+
 var Player = require('../lib/player');
+var helper = require('./helper');
 
 describe('Player', function () {
-  before(function (done) {
-    mongoose.connect('mongodb://127.0.0.1:27017/viilo-test', done);
-  });
+  before(helper.connect);
+  beforeEach(helper.dropPlayers)
 
-  beforeEach(function (done) {
-    Player.count().then(function(count) {
-      // drop fails if collection doesn't exist
-      if (count > 0) {
-        return mongoose.connection.collections.players.drop(done);
-      }
-      done();
-    })
-  });
-
-  after(function (done) {
-    mongoose.disconnect(done);
-  });
+  after(helper.disconnect);
 
   describe('newly created', function () {
     it('has elo of 1200', function () {
