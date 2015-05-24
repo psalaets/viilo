@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Player = require('../lib/player');
+var Result = require('../lib/result');
 
 var url = 'mongodb://127.0.0.1:27017/viilo-test';
 
@@ -12,5 +13,8 @@ module.exports = {
   },
   dropPlayers: function(cb) {
     Player.remove(cb);
+  },
+  dropResults: function(cb) {
+    Result.remove(cb);
   }
 };
