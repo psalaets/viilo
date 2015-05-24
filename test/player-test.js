@@ -183,4 +183,17 @@ describe('Player', function () {
       });
     });
   });
+
+  it('cannot have duplicate names', function (done) {
+    var bob = new Player({name: 'bob'});
+    var otherBob = new Player({name: 'bob'});
+
+    return bob.save().then(function() {
+      return otherBob.save();
+    }).then(function() {
+      done(new Error('expect rejected promise from otherBob.save()'))
+    }, function(err) {
+      done();
+    });
+  });
 });
