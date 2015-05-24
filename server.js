@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 app.get('/', function(req, resp) {
   Player.leaderboard().then(function(players) {
-    resp.render('index', {
+    resp.render('leaderboard', {
       players: players
     });
   });
