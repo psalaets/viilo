@@ -154,6 +154,38 @@ describe('Player', function () {
     });
   });
 
+  describe('after more than 10 games', function () {
+    it('last ten reflects 10 most recent outcomes', function () {
+      var p = new Player({name: 'bob'});
+
+      p.won();
+      p.won();
+      p.won();
+      p.won();
+      p.won();
+
+      // everything below here should still be in lastTen
+
+      p.lost();
+      p.lost();
+      p.lost();
+      p.lost();
+      p.lost();
+
+      p.won();
+      p.won();
+      p.won();
+
+      p.lost();
+      p.lost();
+
+      assert.deepEqual(
+        p.lastTen.toObject(),
+        ['L', 'L', 'L', 'L', 'L', 'W', 'W', 'W', 'L', 'L']
+      );
+    });
+  });
+
   describe('#gamesPlayed', function () {
     it('is sum of wins and losses', function () {
       var p = new Player({name: 'bob'});
