@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "1.12.4",
     "elo-rank": "0.2.2",
     "express": "4.12.4",
     "mongoose": "4.0.3"
