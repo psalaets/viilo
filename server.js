@@ -50,6 +50,31 @@ app.get('/results', function(req, resp) {
   });
 });
 
+app.post('/results', function(req, resp) {
+  var result = req.body;
+
+  /*
+  TODO validate req.body looks like
+  {
+    winner: {id, name},
+    loser:  {id, name}
+  }
+  */
+
+  result = {
+    winnerId: result.winner.id,
+    winnerName: result.winner.name,
+    loserId: result.loser.id,
+    loserName: result.loser.mame
+  };
+
+  Result.create(result).then(function() {
+    resp.status(200).end();
+  }, function(error) {
+    resp.status(500).send(error.message);
+  });
+});
+
 connectToDb(function(err) {
   if (err) throw err;
 
