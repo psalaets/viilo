@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.get('/', function(req, resp, next) {
   Player.leaderboard().then(function(players) {
     resp.render('leaderboard', {
-      players: players.map(function(p) {return p.toObject();})
+      players: renderPlayers(players)
     });
   });
 });
@@ -86,6 +86,14 @@ app.post('/results', function(req, resp) {
     resp.status(500).send(error.message);
   });
 });
+
+function renderPlayers(players) {
+  return players.map(function(p) {
+    return p.toObject();
+  });
+}
+
+// connect to db and launch server
 
 connectToDb(function(err) {
   if (err) throw err;
