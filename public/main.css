@@ -1,21 +1,16 @@
 html {
-  font-size: 14px; }
+  font-size: 12px; }
 
-body {
-  background-color: #f6f6f6;
-  padding: 0;
-  margin: 0; }
-
-[jumbotron] {
+[top-bar] {
   margin: 0;
   padding: 1rem;
   width: 100vw;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -23,28 +18,71 @@ body {
   -ms-flex-align: center;
   align-items: center;
   color: #fff;
-  background-color: #0074D9; }
-  [jumbotron] img {
-    width: 100px;
-    height: 100px; }
-  [jumbotron] h1 {
-    text-align: center;
-    font-size: 3rem;
+  background-color: #0074D9;
+  box-shadow: 0 5px 0 0 rgba(17, 17, 17, 0.1);
+  position: fixed; }
+  [top-bar] h1 {
+    font-size: 2rem;
     font-weight: bold;
     margin: 0;
-    margin-top: 1rem; }
-  [jumbotron] .thin {
+    margin-left: 1rem; }
+  [top-bar] .thin {
     font-weight: 100;
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: 100%; }
+  [top-bar] img {
+    width: 30px;
+    height: 30px; }
+
+[showoff] {
+  padding-top: 1.5rem;
+  text-align: center;
+  background-color: #f7f7f7;
+  padding-bottom: 1.5rem; }
+  [showoff] i {
+    font-size: 3rem;
+    color: #FFDC00;
+    position: absolute;
+    top: 0;
+    left: -2rem;
+    -webkit-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    transform: rotate(10deg); }
+  [showoff] .king {
+    display: inline-block;
+    font-size: 4rem;
+    margin: 0;
+    margin-top: 1rem;
+    color: #0074D9;
+    position: relative; }
+  [showoff] .subtitle {
+    font-weight: 100;
+    display: block;
+    font-size: 1.5rem;
+    color: #aaa; }
 
 [leaderboard] {
   width: 100vw;
   margin-top: 1rem;
   font-size: 2rem;
-  margin-top: 1rem; }
+  margin-top: 2rem; }
+  [leaderboard] .name {
+    font-weight: bold;
+    text-align: left;
+    padding-left: 1rem; }
+  [leaderboard] .elo {
+    color: #0074D9; }
+  [leaderboard] .win {
+    color: #2ECC40; }
+  [leaderboard] .lose {
+    color: #FF851B; }
+  [leaderboard] .streak {
+    color: #777777; }
+  [leaderboard] .name-heading {
+    text-align: left;
+    padding-left: 1rem; }
   [leaderboard] table {
-    width: 80%;
+    width: 93%;
     margin-left: auto;
     margin-right: auto; }
   [leaderboard] td {

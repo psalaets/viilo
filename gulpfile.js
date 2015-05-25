@@ -26,7 +26,7 @@ gulp.task('watch', function() {
 
 gulp.task('build', ['sass']);
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['serve']);
 
 gulp.task('serve', ['watch'], function() {
     // give server a little time to come up before doing browser-sync stuff

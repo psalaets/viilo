@@ -1,31 +1,36 @@
-<div jumbotron>
-  <img src="static/img/logo.png" alt="" />
-  <h1>&nbsp;ViiMed<span class="thin">'s <br>King of Pong</span></h1>
+<div showoff>
+  <span class="subtitle">Currently Dominating</span>
+  <h2 class="king"><i class="fa fa-trophy"></i> {{players.0.name}}</h2>
+
 </div>
 
 <div leaderboard>
   <table>
     <thead>
       <tr>
-        <th>Name </th>
-        <th>Elo</th>
-        <th>Wins</th>
-        <th>Losses</th>
-        <!-- <th>Streak</th> -->
-        <!-- <th>Last Ten</th> -->
-        <!-- <th>ID</th> -->
+        <th class="name-heading">Name </th>
+        <th class="">Last Ten</th>
+
+        <th class="">Elo</th>
+        <th class="">W</th>
+        <th class="">L</th>
+        <th class="">Streak</th>
+
+        <!-- <th class="">ID</th> -->
       </tr>
     </thead>
     <tbody>
       {{#each players}}
       <tr>
-        <td>{{name}}</td>
-        <td>{{elo}}</td>
-        <td>{{wins}}</td>
-        <td>{{losses}}</td>
-        <!-- <td>{{streak}}</td> -->
-        <!-- <td>{{lastTen}}</td> -->
-        <!-- <td>{{id}}</td> -->
+        <td class="name">{{name}}</td>
+        <td class="">{{lastTen}}</td>
+
+        <td width="15%" class="elo">{{elo}}</td>
+        <td width="10%" class="win">{{wins}}</td>
+        <td width="10%" class="lose">{{losses}}</td>
+        <td width="10%" class="streak">{{streak}}</td>
+
+        <!-- <td class="">{{id}}</td> -->
       </tr>
       {{/each}}
     </tbody>
