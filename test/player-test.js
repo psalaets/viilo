@@ -242,4 +242,9 @@ describe('Player', function () {
   describe('#toObject()', function () {
     it('lots of stuff here');
   });
+
+  describe('.rank()', function () {
+    it('ranks by elo');
+    it('can have ties');
+  });
 });
