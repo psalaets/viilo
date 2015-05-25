@@ -30,7 +30,7 @@ gulp.task('default', ['watch']);
 
 gulp.task('serve', ['watch'], function() {
     // give server a little time to come up before doing browser-sync stuff
-    var delay = 500;
+    var delay = 750;
 
     nodemon({
         script: 'server.js',

@@ -8,6 +8,8 @@ var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 var bodyParser = require('body-parser');
 
+var expressHandlebars = require('express-handlebars');
+
 var app = express();
 
 /*********************
@@ -25,7 +27,12 @@ app.use(session({
 }));
 app.use(flash());
 
-// hbs will render templates that are in view/
+// server-side templating
+app.engine('hbs', expressHandlebars({
+  layoutsDir: 'views/layouts/',
+  defaultLayout: 'layout',
+  extname: '.hbs'
+}));
 app.set('view engine', 'hbs');
 
 // public/foo.css is served at <host:port>/static/foo.css

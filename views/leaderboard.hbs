@@ -1,55 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<div jumbotron>
+  <img src="static/img/logo.png" alt="" />
+  <h1>&nbsp;ViiMed<span class="thin">'s <br>King of Pong</span></h1>
+</div>
 
-  <link rel="stylesheet" href="static/bower-packages/normalize.css/normalize.css">
-  <link rel="stylesheet" href="static/main.css">
-
-  <title>ViiLo</title>
-</head>
-<body>
-
-  <div jumbotron>
-    <img src="static/img/logo.png" alt="" />
-    <h1>&nbsp;ViiMed<span class="thin">'s <br>King of Pong</span></h1>
-  </div>
-
-  <div leaderboard>
-    <table>
-      <thead>
-        <tr>
-          <th>Name </th>
-          <th>Elo</th>
-          <th>Wins</th>
-          <th>Losses</th>
-          <!-- <th>Streak</th> -->
-          <!-- <th>Last Ten</th> -->
-          <!-- <th>ID</th> -->
-        </tr>
-      </thead>
-      <tbody>
-        {{#each players}}
-        <tr>
-          <td>{{name}}</td>
-          <td>{{elo}}</td>
-          <td>{{wins}}</td>
-          <td>{{losses}}</td>
-          <!-- <td>{{streak}}</td> -->
-          <!-- <td>{{lastTen}}</td> -->
-          <!-- <td>{{id}}</td> -->
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
+<div leaderboard>
+  <table>
+    <thead>
+      <tr>
+        <th>Name </th>
+        <th>Elo</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <!-- <th>Streak</th> -->
+        <!-- <th>Last Ten</th> -->
+        <!-- <th>ID</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      {{#each players}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{elo}}</td>
+        <td>{{wins}}</td>
+        <td>{{losses}}</td>
+        <!-- <td>{{streak}}</td> -->
+        <!-- <td>{{lastTen}}</td> -->
+        <!-- <td>{{id}}</td> -->
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 
 
 
 
-  </div>
-
-</body>
-</html>
+</div>
