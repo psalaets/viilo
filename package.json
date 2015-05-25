@@ -19,7 +19,8 @@
     "express-handlebars": "2.0.1",
     "express-session": "1.11.2",
     "moment": "2.10.3",
-    "mongoose": "4.0.3"
+    "mongoose": "4.0.3",
+    "promise": "^7.0.1"
   },
   "devDependencies": {
     "browser-sync": "^2.7.4",

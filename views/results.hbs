@@ -2,12 +2,14 @@
 
 <form action="/results" method="POST">
     <select name="winnerId">
+        <option value="">Winner</option>
         {{#each players}}
         <option value="{{id}}">{{name}}</option>
         {{/each}}
     </select>
     beat
     <select name="loserId">
+        <option value="">Loser</option>
         {{#each players}}
         <option value="{{id}}">{{name}}</option>
         {{/each}}

@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Promise = require('promise');
 var Player = require('./lib/player');
 var Result = require('./lib/result');
 
@@ -99,17 +100,19 @@ app.get('/results', function(req, resp) {
 app.post('/results', function(req, resp) {
   var result = req.body;
 
-  result = {
-    winnerId: result.winner.id,
-    winnerName: result.winner.name,
-    loserId: result.loser.id,
-    loserName: result.loser.mame
-  };
+  Promise.all([
+    Player.findById(result.winnerId).exec(),
+    Player.findById(result.loserId).exec()
+  ]).then(function(players) {
+    var winner = players[0];
+    var loser = players[1];
 
-  Result.create(result).then(function() {
-    resp.status(200).end();
+    return Result.record(winner, loser);
+  }).then(function(newElos) {
+    resp.redirect('/results');
   }, function(error) {
-    resp.status(500).send(error.message);
+    console.log(error)
+    resp.status(500).end();
   });
 });
 
@@ -132,7 +135,7 @@ Connect to DB and launch server
 connectToDb(function(err) {
   if (err) throw err;
 
-  startWebServer(addDummyData);
+  startWebServer();
 })
 
 function connectToDb(cb) {
@@ -145,28 +148,11 @@ function connectToDb(cb) {
   });
 }
 
-function startWebServer(cb) {
+function startWebServer() {
   var server = app.listen(8080, function() {
     var host = server.address().address;
     var port = server.address().port;
 
     console.log('app listening at http://%s:%s', host, port);
-
-    cb();
-  });
-}
-
-function addDummyData() {
-  var p1 = new Player({name: 'Joe'});
-  var p2 = new Player({name: 'Bob'});
-
-  p1.save().then(function() {
-    return p2.save();
-  }).then(function() {
-    return Player.result(p1, p2);
-  }).then(function() {
-    return Player.result(p1, p2);
-  }).then(function() {
-    return Player.result(p2, p1);
   });
 }

@@ -16,4 +16,8 @@ describe('Result', function () {
   describe('.recent()', function () {
     it('lists results by date, newest first');
   });
+
+  describe('.record()', function () {
+    it('records a result');
+  });
 });
