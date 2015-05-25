@@ -62,6 +62,12 @@ describe('Player', function () {
 
       assert.equal(p.lastTen.length, 0);
     });
+
+    it('is on provisional status', function () {
+      var p = new Player({name: 'bob'});
+
+      assert.equal(p.provisional, true);
+    });
   });
 
   describe('after one win', function () {
@@ -151,6 +157,23 @@ describe('Player', function () {
       p.lost();
 
       assert.deepEqual(p.lastTen.slice(-2), ['W', 'L']);
+    });
+  });
+
+  describe('after 5 games', function () {
+    it('is off of provisional status', function () {
+      var p = new Player({name: 'bob'});
+
+      p.won();
+      p.won();
+      p.won();
+      p.won();
+
+      assert.equal(p.provisional, true);
+
+      p.won();
+
+      assert.equal(p.provisional, false);
     });
   });
 
