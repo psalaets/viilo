@@ -112,7 +112,7 @@ app.post('/results', function(req, resp) {
     resp.redirect('/results');
   }, function(error) {
     console.log(error)
-    resp.status(500).end();
+    resp.redirect('/results');
   });
 });
 
