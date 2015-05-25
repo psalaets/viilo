@@ -65,16 +65,10 @@ app.get('/players', function(req, resp) {
 });
 
 app.post('/players', function(req, resp) {
-  var body = req.body;
-  var name = body.name;
+  var player = req.body;
+  var name = player.name;
 
-  var player = {
-    name: name
-  };
-
-  Player.create(player).then(function() {
-    return Player.rank();
-  }).then(function() {
+  Player.add(player).then(function() {
     req.flash('success', 'Added ' + name);
     resp.redirect('/players');
   }, function(error) {
@@ -114,10 +108,6 @@ app.post('/results', function(req, resp) {
     var loser = players[1];
 
     return Result.record(winner, loser);
-  }).then(function(newElos) {
-    return Player.rank().then(function() {
-      return newElos;
-    });
   }).then(function(newElos) {
     req.flash('winnerMessage', newElos.winner.name + ' ' + newElos.winner.eloDelta);
     req.flash('loserMessage', newElos.loser.name + ' ' + newElos.loser.eloDelta);
