@@ -84,6 +84,12 @@ html {
   margin-top: 1rem;
   font-size: 2rem;
   margin-top: 2rem; }
+  [leaderboard] h2 {
+    width: 93%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 100;
+    font-size: 2rem; }
   [leaderboard] .name {
     font-weight: bold;
     text-align: left;
@@ -98,19 +104,21 @@ html {
     color: #FF851B; }
   [leaderboard] .streak {
     color: #FF4136; }
+  [leaderboard] .rank-heading {
+    color: #FFDC00; }
   [leaderboard] .name-heading {
     text-align: left;
     padding-left: 1rem; }
   [leaderboard] .streak-heading {
-    color: rgba(255, 65, 54, 0.5); }
+    color: #FF4136; }
   [leaderboard] .elo-heading {
-    color: rgba(0, 116, 217, 0.5); }
+    color: #0074D9; }
   [leaderboard] .win-heading {
-    color: rgba(46, 204, 64, 0.5); }
+    color: #2ECC40; }
   [leaderboard] .lose-heading {
-    color: rgba(255, 133, 27, 0.5); }
+    color: #FF851B; }
   [leaderboard] .lastten-heading {
-    color: rgba(17, 17, 17, 0.5);
+    color: #111;
     font-weight: bold; }
   [leaderboard] table {
     width: 93%;
@@ -120,13 +128,13 @@ html {
     padding-bottom: 1rem;
     padding-top: 1rem; }
   [leaderboard] thead {
-    color: #aaa;
-    border-bottom: 3px double #ddd; }
+    border-bottom: 2px solid #ddd; }
     [leaderboard] thead th {
       font-weight: 100;
       font-size: 1.5rem;
+      width: 20px;
       padding-bottom: 1rem; }
   [leaderboard] tbody tr {
-    border-bottom: 1px solid #ddd; }
+    border-bottom: 1px dotted #ddd; }
   [leaderboard] tbody td {
     text-align: center; }

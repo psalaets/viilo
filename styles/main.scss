@@ -117,6 +117,13 @@ html {
 }
 
 [leaderboard] {
+  h2  {
+    width: 93%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 100;
+    font-size: 2rem;
+  }
   width: 100vw;
   margin-top: $base-spacing;
   font-size: 2rem;
@@ -147,7 +154,8 @@ html {
     color: $red;
   }
 
-  .rank-heading {;
+  .rank-heading {
+    color: $yellow;
   }
 
   .name-heading {
@@ -156,23 +164,23 @@ html {
   }
 
   .streak-heading {
-    color: rgba($red, .5);
+    color: $red;
   }
 
   .elo-heading {
-    color: rgba($blue, .5);
+    color: $blue;
   }
 
   .win-heading {
-    color: rgba($green, .5);
+    color: $green;
   }
 
   .lose-heading {
-    color: rgba($orange, .5);
+    color: $orange;
   }
 
   .lastten-heading {
-    color: rgba($black, .5);
+    color: $black;
     font-weight: bold;
   }
 
@@ -188,12 +196,12 @@ html {
 
   }
   thead {
-    color: $gray;
-    border-bottom: 3px double $silver;
+    border-bottom: 2px solid $silver;
 
     th {
       font-weight: 100;
       font-size: 1.5rem;
+      width: 20px;
       padding-bottom: 1rem;
     }
   }
@@ -201,7 +209,7 @@ html {
   tbody {
 
     tr {
-      border-bottom: 1px solid $silver;
+      border-bottom: 1px dotted $silver;
     }
 
     td {
