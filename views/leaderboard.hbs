@@ -14,21 +14,41 @@
 <body>
 
   <div jumbotron>
-    <h1>ViiLo</h1>
+    <img src="static/img/logo.png" alt="" />
+    <h1>&nbsp;ViiMed<span class="thin">'s <br>King of Pong</span></h1>
   </div>
 
   <div leaderboard>
-    {{#each players}}
-    <div class="player-row">
-      {{name}}
-      {{elo}}
-      {{wins}}
-      {{losses}}
-      {{streak}}
-      {{lastTen}}
-      {{id}}
-    </div>
-    {{/each}}
+    <table>
+      <thead>
+        <tr>
+          <th>Name </th>
+          <th>Elo</th>
+          <th>Wins</th>
+          <th>Losses</th>
+          <!-- <th>Streak</th> -->
+          <!-- <th>Last Ten</th> -->
+          <!-- <th>ID</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        {{#each players}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{elo}}</td>
+          <td>{{wins}}</td>
+          <td>{{losses}}</td>
+          <!-- <td>{{streak}}</td> -->
+          <!-- <td>{{lastTen}}</td> -->
+          <!-- <td>{{id}}</td> -->
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+
+
+
   </div>
 
 </body>

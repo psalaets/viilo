@@ -1,10 +1,15 @@
 html {
-  font-size: 16px; }
+  font-size: 14px; }
 
 body {
-  background-color: #f6f6f6; }
+  background-color: #f6f6f6;
+  padding: 0;
+  margin: 0; }
 
 [jumbotron] {
+  margin: 0;
+  padding: 1rem;
+  width: 100vw;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -17,18 +22,41 @@ body {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 10rem; }
+  color: #fff;
+  background-color: #0074D9; }
+  [jumbotron] img {
+    width: 100px;
+    height: 100px; }
+  [jumbotron] h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 1rem; }
+  [jumbotron] .thin {
+    font-weight: 100;
+    font-size: 2rem;
+    width: 100%; }
 
 [leaderboard] {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center; }
+  width: 100vw;
+  margin-top: 1rem;
+  font-size: 2rem;
+  margin-top: 1rem; }
+  [leaderboard] table {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto; }
+  [leaderboard] td {
+    padding-bottom: 1rem;
+    padding-top: 1rem; }
+  [leaderboard] thead {
+    color: #aaa;
+    border-bottom: 1px solid #aaa; }
+    [leaderboard] thead th {
+      font-weight: 100;
+      font-size: 1.5rem; }
+  [leaderboard] tbody tr {
+    border-bottom: 1px solid #aaa; }
+  [leaderboard] tbody td {
+    text-align: center; }
