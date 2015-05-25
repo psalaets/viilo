@@ -90,6 +90,8 @@ html {
     margin-right: auto;
     font-weight: 100;
     font-size: 2rem; }
+  [leaderboard] .provisional {
+    opacity: .2; }
   [leaderboard] .name {
     font-weight: bold;
     text-align: left;
