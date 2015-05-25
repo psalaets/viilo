@@ -1,5 +1,17 @@
 <h1>Add Result</h1>
 
+{{#if winnerMessage}}
+  {{winnerMessage}}
+{{/if}}
+
+{{#if loserMessage}}
+  {{loserMessage}}
+{{/if}}
+
+{{#if error}}
+  Error: {{error}}
+{{/if}}
+
 <form action="/results" method="POST">
     <select name="winnerId">
         <option value="">Winner</option>

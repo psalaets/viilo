@@ -76,6 +76,7 @@ app.post('/players', function(req, resp) {
     req.flash('success', 'Added ' + name);
     resp.redirect('/players');
   }, function(error) {
+    console.log(error);
     req.flash('error', 'Could not add ' + name);
     resp.redirect('/players');
   });
@@ -92,7 +93,10 @@ app.get('/results', function(req, resp) {
   }).then(function(data) {
     resp.render('results', {
       results: renderResults(data.results),
-      players: renderPlayers(data.players)
+      players: renderPlayers(data.players),
+      winnerMessage: req.flash('winnerMessage'),
+      loserMessage: req.flash('loserMessage'),
+      error: req.flash('error')
     });
   });
 });
@@ -109,9 +113,12 @@ app.post('/results', function(req, resp) {
 
     return Result.record(winner, loser);
   }).then(function(newElos) {
+    req.flash('winnerMessage', newElos.winner.name + ' ' + newElos.winner.eloDelta);
+    req.flash('loserMessage', newElos.loser.name + ' ' + newElos.loser.eloDelta);
     resp.redirect('/results');
   }, function(error) {
     console.log(error)
+    req.flash('error', 'Could not record result');
     resp.redirect('/results');
   });
 });
