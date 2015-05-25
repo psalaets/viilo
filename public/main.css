@@ -77,10 +77,23 @@ html {
   [leaderboard] .lose {
     color: #FF851B; }
   [leaderboard] .streak {
-    color: #777777; }
+    color: #FF4136; }
+  [leaderboard] .rank-heading {
+    color: rgba(255, 220, 0, 0.5); }
   [leaderboard] .name-heading {
     text-align: left;
     padding-left: 1rem; }
+  [leaderboard] .streak-heading {
+    color: rgba(255, 65, 54, 0.5); }
+  [leaderboard] .elo-heading {
+    color: rgba(0, 116, 217, 0.5); }
+  [leaderboard] .win-heading {
+    color: rgba(46, 204, 64, 0.5); }
+  [leaderboard] .lose-heading {
+    color: rgba(255, 133, 27, 0.5); }
+  [leaderboard] .lastten-heading {
+    color: rgba(17, 17, 17, 0.5);
+    font-weight: bold; }
   [leaderboard] table {
     width: 93%;
     margin-left: auto;
@@ -90,11 +103,12 @@ html {
     padding-top: 1rem; }
   [leaderboard] thead {
     color: #aaa;
-    border-bottom: 1px solid #aaa; }
+    border-bottom: 3px double #ddd; }
     [leaderboard] thead th {
       font-weight: 100;
-      font-size: 1.5rem; }
+      font-size: 1.5rem;
+      padding-bottom: 1rem; }
   [leaderboard] tbody tr {
-    border-bottom: 1px solid #aaa; }
+    border-bottom: 1px solid #ddd; }
   [leaderboard] tbody td {
     text-align: center; }

@@ -131,12 +131,37 @@ html {
   }
 
   .streak {
-    color: darken($gray, 20%);
+    color: $red;
+  }
+
+  .rank-heading {
+    color: rgba($yellow, .5);
   }
 
   .name-heading {
     text-align: left;
     padding-left: 1rem;
+  }
+
+  .streak-heading {
+    color: rgba($red, .5);
+  }
+
+  .elo-heading {
+    color: rgba($blue, .5);
+  }
+
+  .win-heading {
+    color: rgba($green, .5);
+  }
+
+  .lose-heading {
+    color: rgba($orange, .5);
+  }
+
+  .lastten-heading {
+    color: rgba($black, .5);
+    font-weight: bold;
   }
 
   table {
@@ -152,18 +177,19 @@ html {
   }
   thead {
     color: $gray;
-    border-bottom: 1px solid $gray;
+    border-bottom: 3px double $silver;
 
     th {
       font-weight: 100;
       font-size: 1.5rem;
+      padding-bottom: 1rem;
     }
   }
 
   tbody {
 
     tr {
-      border-bottom: 1px solid $gray;
+      border-bottom: 1px solid $silver;
     }
 
     td {
