@@ -20,7 +20,8 @@
     "express-session": "1.11.2",
     "moment": "2.10.3",
     "mongoose": "4.0.3",
-    "promise": "^7.0.1"
+    "promise": "7.0.1",
+    "standings": "2.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.7.4",

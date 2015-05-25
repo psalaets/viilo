@@ -65,14 +65,10 @@ app.get('/players', function(req, resp) {
 });
 
 app.post('/players', function(req, resp) {
-  var body = req.body;
-  var name = body.name;
+  var player = req.body;
+  var name = player.name;
 
-  var player = {
-    name: name
-  };
-
-  Player.create(player).then(function() {
+  Player.add(player).then(function() {
     req.flash('success', 'Added ' + name);
     resp.redirect('/players');
   }, function(error) {

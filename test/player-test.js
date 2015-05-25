@@ -62,6 +62,12 @@ describe('Player', function () {
 
       assert.equal(p.lastTen.length, 0);
     });
+
+    it('is on provisional status', function () {
+      var p = new Player({name: 'bob'});
+
+      assert.equal(p.provisional, true);
+    });
   });
 
   describe('after one win', function () {
@@ -154,6 +160,23 @@ describe('Player', function () {
     });
   });
 
+  describe('after 5 games', function () {
+    it('is off of provisional status', function () {
+      var p = new Player({name: 'bob'});
+
+      p.won();
+      p.won();
+      p.won();
+      p.won();
+
+      assert.equal(p.provisional, true);
+
+      p.won();
+
+      assert.equal(p.provisional, false);
+    });
+  });
+
   describe('after more than 10 games', function () {
     it('last ten reflects 10 most recent outcomes', function () {
       var p = new Player({name: 'bob'});
@@ -241,5 +264,10 @@ describe('Player', function () {
 
   describe('#toObject()', function () {
     it('lots of stuff here');
+  });
+
+  describe('.rank()', function () {
+    it('ranks by elo');
+    it('can have ties');
   });
 });
