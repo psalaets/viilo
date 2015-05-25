@@ -35,10 +35,28 @@ html {
     height: 30px; }
 
 [showoff] {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding-top: 1.5rem;
-  text-align: center;
   background-color: #f7f7f7;
   padding-bottom: 1.5rem; }
+  [showoff] .panel {
+    text-align: center;
+    background: #fff;
+    border-radius: 3px;
+    width: auto;
+    padding: 2rem;
+    box-shadow: 0 2px 0 0 rgba(17, 17, 17, 0.1); }
   [showoff] i {
     font-size: 3rem;
     color: #FFDC00;
@@ -70,6 +88,8 @@ html {
     font-weight: bold;
     text-align: left;
     padding-left: 1rem; }
+  [leaderboard] .rank {
+    font-size: 2rem; }
   [leaderboard] .elo {
     color: #0074D9; }
   [leaderboard] .win {
@@ -78,8 +98,6 @@ html {
     color: #FF851B; }
   [leaderboard] .streak {
     color: #FF4136; }
-  [leaderboard] .rank-heading {
-    color: rgba(255, 220, 0, 0.5); }
   [leaderboard] .name-heading {
     text-align: left;
     padding-left: 1rem; }

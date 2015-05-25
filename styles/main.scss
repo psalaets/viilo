@@ -74,11 +74,21 @@ html {
 }
 
 [showoff] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     padding-top: 1.5rem;
-    text-align: center;
     background-color: lighten($silver, 10%);
     padding-bottom: 1.5rem;
-
+    .panel {
+      text-align: center;
+      background: $white;
+      border-radius: 3px;
+      width: auto;
+      padding: 2rem;
+      box-shadow: 0 2px 0 0 rgba($black, .1);
+    }
     i {
       font-size: 3rem;
       color: $yellow;
@@ -117,6 +127,9 @@ html {
     text-align: left;
     padding-left: 1rem;
   }
+  .rank {
+    font-size: 2rem;
+  }
 
   .elo {
     color: $blue;
@@ -134,8 +147,7 @@ html {
     color: $red;
   }
 
-  .rank-heading {
-    color: rgba($yellow, .5);
+  .rank-heading {;
   }
 
   .name-heading {
