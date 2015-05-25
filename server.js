@@ -81,23 +81,23 @@ app.post('/players', function(req, resp) {
 });
 
 app.get('/results', function(req, resp) {
-  Result.recent().then(function(results) {
-    resp.send({
-      results: results
+  Player.list().then(function(players) {
+    return Result.recent().then(function(results) {
+      return {
+        players: players,
+        results: results
+      };
+    });
+  }).then(function(data) {
+    resp.render('results', {
+      results: renderResults(data.results),
+      players: renderPlayers(data.players)
     });
   });
 });
 
 app.post('/results', function(req, resp) {
   var result = req.body;
-
-  /*
-  TODO validate req.body looks like
-  {
-    winner: {id, name},
-    loser:  {id, name}
-  }
-  */
 
   result = {
     winnerId: result.winner.id,
@@ -112,6 +112,12 @@ app.post('/results', function(req, resp) {
     resp.status(500).send(error.message);
   });
 });
+
+function renderResults(results) {
+  return results.map(function(r) {
+    return r.toObject();
+  });
+}
 
 function renderPlayers(players) {
   return players.map(function(p) {

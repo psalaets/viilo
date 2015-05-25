@@ -1,0 +1,26 @@
+<h1>Add Result</h1>
+
+<form action="/results" method="POST">
+    <select name="winnerId">
+        {{#each players}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    beat
+    <select name="loserId">
+        {{#each players}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<h1>Results</h1>
+
+<ul>
+    {{#each results}}
+    <li>{{winner}} beat {{loser}} on {{date}}</li>
+    {{/each}}
+</ul>
