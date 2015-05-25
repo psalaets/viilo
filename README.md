@@ -16,6 +16,16 @@ Make your database directory, just incase you're not cool enough. #JSONLyfe Do y
 
 `npm install`
 
+## Running dev server
+
+Start mongo
+
+`mongod`
+
+In another terminal
+
+`gulp serve`
+
 ## Running server
 
 Start mongo
