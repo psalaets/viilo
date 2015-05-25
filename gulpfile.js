@@ -44,7 +44,8 @@ gulp.task('serve', ['watch'], function() {
     }).once('start', function() {
         setTimeout(function() {
             browserSync.init({
-                proxy: 'localhost:8080'
+                proxy: 'localhost:8080',
+                open: false
             });
         }, delay);
     });
