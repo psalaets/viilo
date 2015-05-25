@@ -73,6 +73,8 @@ app.post('/players', function(req, resp) {
   };
 
   Player.create(player).then(function() {
+    return Player.rank();
+  }).then(function() {
     req.flash('success', 'Added ' + name);
     resp.redirect('/players');
   }, function(error) {
@@ -112,6 +114,10 @@ app.post('/results', function(req, resp) {
     var loser = players[1];
 
     return Result.record(winner, loser);
+  }).then(function(newElos) {
+    return Player.rank().then(function() {
+      return newElos;
+    });
   }).then(function(newElos) {
     req.flash('winnerMessage', newElos.winner.name + ' ' + newElos.winner.eloDelta);
     req.flash('loserMessage', newElos.loser.name + ' ' + newElos.loser.eloDelta);
