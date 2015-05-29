@@ -2,6 +2,7 @@ html {
   font-size: 12px; }
 
 [top-bar] {
+  z-index: 500;
   margin: 0;
   padding: 1rem;
   width: 100vw;
