@@ -98,7 +98,7 @@ var TopBar = React.createClass({displayName: "TopBar",
   render: function() {
     return (
       React.createElement("div", {"data-top-bar": true}, 
-        React.createElement("img", {src: "static/img/logo.png", alt: ""}), 
+        React.createElement("img", {src: "img/logo.png", alt: ""}), 
         React.createElement("h1", null, React.createElement("a", {href: "/"}, "King of Pong"))
       )
     );
