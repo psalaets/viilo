@@ -1,7 +1,7 @@
 html {
   font-size: 12px; }
 
-[top-bar] {
+[data-top-bar] {
   z-index: 500;
   margin: 0;
   padding: 1rem;
@@ -22,22 +22,22 @@ html {
   background-color: #0074D9;
   box-shadow: 0 5px 0 0 rgba(17, 17, 17, 0.1);
   position: fixed; }
-  [top-bar] h1 {
+  [data-top-bar] h1 {
     font-size: 2rem;
     font-weight: bold;
     margin: 0;
     margin-left: 1rem; }
-  [top-bar] a {
-  color: #ffffff;}
-  [top-bar] .thin {
+  [data-top-bar] a {
+    color: #fff; }
+  [data-top-bar] .thin {
     font-weight: 100;
     font-size: 1.5rem;
     width: 100%; }
-  [top-bar] img {
+  [data-top-bar] img {
     width: 30px;
     height: 30px; }
 
-[showoff] {
+[data-showoff] {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -53,14 +53,14 @@ html {
   padding-top: 1.5rem;
   background-color: #f7f7f7;
   padding-bottom: 1.5rem; }
-  [showoff] .panel {
+  [data-showoff] .panel {
     text-align: center;
     background: #fff;
     border-radius: 3px;
     width: auto;
     padding: 2rem;
     box-shadow: 0 2px 0 0 rgba(17, 17, 17, 0.1); }
-  [showoff] i {
+  [data-showoff] i {
     font-size: 3rem;
     color: #FFDC00;
     position: absolute;
@@ -69,77 +69,77 @@ html {
     -webkit-transform: rotate(10deg);
     -ms-transform: rotate(10deg);
     transform: rotate(10deg); }
-  [showoff] .king {
+  [data-showoff] .king {
     display: inline-block;
     font-size: 4rem;
     margin: 0;
     margin-top: 1rem;
     color: #0074D9;
     position: relative; }
-  [showoff] .subtitle {
+  [data-showoff] .subtitle {
     font-weight: 100;
     display: block;
     font-size: 1.5rem;
     color: #aaa; }
 
-[leaderboard] {
+[data-leaderboard] {
   width: 100vw;
   margin-top: 1rem;
   font-size: 2rem;
   margin-top: 2rem; }
-  [leaderboard] h2 {
+  [data-leaderboard] h2 {
     width: 93%;
     margin-left: auto;
     margin-right: auto;
     font-weight: 100;
     font-size: 2rem; }
-  [leaderboard] .provisional {
+  [data-leaderboard] .provisional {
     opacity: .2; }
-  [leaderboard] .name {
+  [data-leaderboard] .name {
     font-weight: bold;
     text-align: left;
     padding-left: 1rem; }
-  [leaderboard] .rank {
+  [data-leaderboard] .rank {
     font-size: 2rem; }
-  [leaderboard] .elo {
+  [data-leaderboard] .elo {
     color: #0074D9; }
-  [leaderboard] .win {
+  [data-leaderboard] .win {
     color: #2ECC40; }
-  [leaderboard] .lose {
+  [data-leaderboard] .lose {
     color: #FF851B; }
-  [leaderboard] .streak {
+  [data-leaderboard] .streak {
     color: #FF4136; }
-  [leaderboard] .rank-heading {
+  [data-leaderboard] .rank-heading {
     color: #FFDC00; }
-  [leaderboard] .name-heading {
+  [data-leaderboard] .name-heading {
     text-align: left;
     padding-left: 1rem; }
-  [leaderboard] .streak-heading {
+  [data-leaderboard] .streak-heading {
     color: #FF4136; }
-  [leaderboard] .elo-heading {
+  [data-leaderboard] .elo-heading {
     color: #0074D9; }
-  [leaderboard] .win-heading {
+  [data-leaderboard] .win-heading {
     color: #2ECC40; }
-  [leaderboard] .lose-heading {
+  [data-leaderboard] .lose-heading {
     color: #FF851B; }
-  [leaderboard] .lastten-heading {
+  [data-leaderboard] .lastten-heading {
     color: #111;
     font-weight: bold; }
-  [leaderboard] table {
+  [data-leaderboard] table {
     width: 93%;
     margin-left: auto;
     margin-right: auto; }
-  [leaderboard] td {
+  [data-leaderboard] td {
     padding-bottom: 1rem;
     padding-top: 1rem; }
-  [leaderboard] thead {
+  [data-leaderboard] thead {
     border-bottom: 2px solid #ddd; }
-    [leaderboard] thead th {
+    [data-leaderboard] thead th {
       font-weight: 100;
       font-size: 1.5rem;
       width: 20px;
       padding-bottom: 1rem; }
-  [leaderboard] tbody tr {
+  [data-leaderboard] tbody tr {
     border-bottom: 1px dotted #ddd; }
-  [leaderboard] tbody td {
+  [data-leaderboard] tbody td {
     text-align: center; }
