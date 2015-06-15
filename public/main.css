@@ -2,6 +2,7 @@ html {
   font-size: 12px; }
 
 [top-bar] {
+  z-index: 500;
   margin: 0;
   padding: 1rem;
   width: 100vw;
@@ -26,6 +27,8 @@ html {
     font-weight: bold;
     margin: 0;
     margin-left: 1rem; }
+  [top-bar] a {
+  color: #ffffff;}
   [top-bar] .thin {
     font-weight: 100;
     font-size: 1.5rem;

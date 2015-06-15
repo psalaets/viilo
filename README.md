@@ -12,9 +12,11 @@ Make your database directory, just incase you're not cool enough. #JSONLyfe Do y
 
 `mkdir -p /data/db`
 
-### 2. pull down node modules
+### 2. Get app dependencies
 
 `npm install`
+
+`bower install`
 
 ## Running dev server
 

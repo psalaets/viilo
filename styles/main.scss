@@ -2,6 +2,7 @@
 // Settings: Global variables, config switches.
 $base-font-size: 12px;
 $base-spacing: 1rem;
+$z-index-nav: 500;
 
 $aqua:  #7FDBFF;
 $blue:  #0074D9;
@@ -39,7 +40,7 @@ html {
 // Objects: Cosmetic-free design patterns.
 // Components: Designed components, chunks of UI.
 [top-bar] {
-
+  z-index: $z-index-nav;
   margin: 0;
   padding: 1rem;
   width: 100vw;
@@ -58,6 +59,9 @@ html {
     font-weight: bold;
     margin: 0;
     margin-left: 1rem;
+  }
+  a {
+    color: $white;
   }
 
   .thin {
