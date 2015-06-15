@@ -3,7 +3,7 @@ var React = require('react');
 var Leaderboard = React.createClass({
   propTypes: {
     // TODO more specific re: array contents
-    players: React.PropTypes.array
+    players: React.PropTypes.array.isRequired
   },
   render: function() {
     var rows = this.props.players.map(function(player) {
