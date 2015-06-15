@@ -42,6 +42,9 @@ app.use('/static', express.static('public'));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// parses incoming application/json and sets as request.body
+app.use(bodyParser.json());
+
 /*********************
 Routes
 **********************/
@@ -54,6 +57,12 @@ app.get('/', function(req, resp, next) {
   });
 });
 
+app.get('/leaderboard.json', function(req, resp, next) {
+  Player.leaderboard().then(function(players) {
+    resp.send(renderPlayers(players));
+  });
+});
+
 app.get('/players', function(req, resp) {
   Player.list().then(function(players) {
     resp.render('players', {
@@ -61,6 +70,12 @@ app.get('/players', function(req, resp) {
       success: req.flash('success'),
       error: req.flash('error')
     });
+  });
+});
+
+app.get('/players.json', function(req, resp) {
+  Player.list().then(function(players) {
+    resp.send(renderPlayers(players));
   });
 });
 
@@ -75,6 +90,23 @@ app.post('/players', function(req, resp) {
     console.log(error);
     req.flash('error', 'Could not add ' + name);
     resp.redirect('/players');
+  });
+});
+
+app.post('/players.json', function(req, resp) {
+  var player = req.body;
+  var name = player.name;
+
+  Player.add(player).then(function() {
+    resp.send({
+      message: 'Added ' + name
+    });
+  }, function(error) {
+    console.log(error);
+
+    resp.status(500).send({
+      message: 'Could not add ' + name
+    });
   });
 });
 
@@ -97,6 +129,12 @@ app.get('/results', function(req, resp) {
   });
 });
 
+app.get('/results.json', function(req, resp) {
+  Result.recent().then(function(results) {
+    resp.send(renderResults(results));
+  });
+});
+
 app.post('/results', function(req, resp) {
   var result = req.body;
 
@@ -113,9 +151,37 @@ app.post('/results', function(req, resp) {
     req.flash('loserMessage', newElos.loser.name + ' ' + newElos.loser.eloDelta);
     resp.redirect('/results');
   }, function(error) {
-    console.log(error)
+    console.log(error);
+
     req.flash('error', 'Could not record result');
     resp.redirect('/results');
+  });
+});
+
+app.post('/results.json', function(req, resp) {
+  var result = req.body;
+
+  Promise.all([
+    Player.findById(result.winnerId).exec(),
+    Player.findById(result.loserId).exec()
+  ]).then(function(players) {
+    var winner = players[0];
+    var loser = players[1];
+
+    return Result.record(winner, loser);
+  }).then(function(newElos) {
+    resp.send({
+      winnerName: newElos.winner.name,
+      winnerDelta: newElos.winner.eloDelta,
+      loserName: newElos.loser.name,
+      loserDelta: newElos.loser.eloDelta
+    });
+  }, function(error) {
+    console.log(error)
+
+    resp.status(500).send({
+      message: 'Could not record result'
+    });
   });
 });
 
