@@ -52,7 +52,9 @@ gulp.task('sass', function () {
             cascade: false
         }))
         .pipe(dataPrefixAttributeSelectors())
-        .pipe(gulp.dest(paths.dist));
+        .pipe(gulp.dest(paths.dist))
+        // inject styles into page w/o page reload
+        .pipe(browserSync.stream());
 });
 
 gulp.task('watch', ['watchify'], function() {
