@@ -3,7 +3,7 @@ var Viilo = require('./components/viilo');
 
 var request = require('superagent');
 
-loadLeaderboard()
+loadLeaderboard();
 
 function loadLeaderboard() {
   request

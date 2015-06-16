@@ -32,7 +32,7 @@ function makeBundle(watch) {
         b.on('update', rebundle);
     }
 
-    b.add('client/app.jsx');
+    b.add('client/app.js');
     b.transform('reactify');
 
     function rebundle() {
