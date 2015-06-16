@@ -69,8 +69,9 @@ gulp.task('serve', ['watch'], function() {
 
     nodemon({
         script: 'server.js',
+        watch: ['server.js', 'lib/', 'views/'],
         // extensions to watch
-        ext: 'js hbs css'
+        ext: 'js hbs'
     }).on('restart', function() {
         // refresh browsers any time server restarts
         setTimeout(function() {
