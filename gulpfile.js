@@ -6,22 +6,43 @@ var nodemon = require('gulp-nodemon');
 var browserSync = require('browser-sync');
 
 var browserify = require('browserify');
+var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var replace = require('gulp-replace')
 
 var paths = {
     styles: 'styles/main.scss',
-    dist: 'public/'
+    dist: 'public/',
+    js: 'client/**/*'
 };
 
+gulp.task('watchify', function() {
+    return makeBundle('watch');
+});
+
 gulp.task('browserify', function() {
-    var b = browserify();
+    return makeBundle();
+});
+
+function makeBundle(watch) {
+    var b = browserify(watchify.args);
+
+    if (watch) {
+        b = watchify(b);
+        b.on('update', rebundle);
+    }
+
     b.add('client/app.jsx');
     b.transform('reactify');
-    return b.bundle()
-        .pipe(source('bundle.js'))
-        .pipe(gulp.dest(paths.dist));
-});
+
+    function rebundle() {
+        return b.bundle()
+            .pipe(source('bundle.js'))
+            .pipe(gulp.dest(paths.dist));
+    }
+
+    return rebundle();
+}
 
 gulp.task('sass', function () {
   gulp.src(paths.styles)
@@ -34,11 +55,11 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', ['watchify'], function() {
     gulp.watch([paths.styles], ['sass']);
 });
 
-gulp.task('build', ['sass']);
+gulp.task('build', ['sass', 'browserify']);
 
 gulp.task('default', ['serve']);
 
