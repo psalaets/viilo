@@ -1,5 +1,5 @@
 var React = require('react')
-var Viilo = require('./components/viilo');
+var Viilo = require('./components/viilo.jsx');
 
 var request = require('superagent');
 

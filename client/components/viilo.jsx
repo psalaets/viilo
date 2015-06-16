@@ -1,8 +1,8 @@
 var React = require('react');
 
-var Leaderboard = require('./leaderboard');
-var Showoff = require('./showoff');
-var TopBar = require('./top-bar');
+var Leaderboard = require('./leaderboard.jsx');
+var Showoff = require('./showoff.jsx');
+var TopBar = require('./top-bar.jsx');
 
 var Viilo = React.createClass({
   propTypes: {
