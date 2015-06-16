@@ -36,6 +36,8 @@ function makeBundle(watch) {
     b.transform('reactify');
 
     function rebundle() {
+        console.log('refreshing bundle.js');
+
         return b.bundle()
             .pipe(source('bundle.js'))
             .pipe(gulp.dest(paths.dist));
@@ -59,6 +61,7 @@ gulp.task('sass', function () {
 
 gulp.task('watch', ['watchify'], function() {
     gulp.watch([paths.styles], ['sass']);
+    gulp.watch(paths.dist + 'bundle.js', browserSync.reload);
 });
 
 gulp.task('build', ['sass', 'browserify']);
