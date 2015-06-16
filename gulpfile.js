@@ -8,7 +8,10 @@ var browserSync = require('browser-sync');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
-var replace = require('gulp-replace')
+var buffer = require('vinyl-buffer');
+var replace = require('gulp-replace');
+var uglify = require('gulp-uglify');
+var gulpIf = require('gulp-if');
 
 var paths = {
     styles: 'styles/main.scss',
@@ -21,7 +24,12 @@ gulp.task('watchify', function() {
 });
 
 gulp.task('browserify', function() {
-    return makeBundle();
+    return makeBundle()
+        // convert streaming vinyl objects to buffered vinyl objects
+        // so uglify will work
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(gulp.dest(paths.dist));
 });
 
 function makeBundle(watch) {
