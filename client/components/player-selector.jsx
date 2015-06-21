@@ -4,13 +4,13 @@ var PlayerSelector = React.createClass({
   propTypes: {
     players: React.PropTypes.array,
     excludeId: React.PropTypes.string,
-    name: React.PropTypes.string.isRequired,
     defaultOptionText: React.PropTypes.string,
     playerSelected: React.PropTypes.func
   },
   getDefaultProps: function () {
     return {
       players: [],
+      excludeId: null,
       defaultOptionText: '-',
       playerSelected: function() {}
     };
@@ -25,16 +25,16 @@ var PlayerSelector = React.createClass({
     });
 
     // default option
-    options.unshift(<option key='' value=''>{this.props.defaultOptionText}</option>)
+    options.unshift(<option key="" value="">{this.props.defaultOptionText}</option>)
 
     return (
-      <select ref="select" name={this.props.name} onChange={this.handleSelection}>
+      <select defaultValue="" onChange={this.handleSelection}>
         {options}
       </select>
     );
   },
   handleSelection: function(event) {
-    var selectedId = this.refs.select.getDOMNode().value;
+    var selectedId = event.target.value;
     this.props.playerSelected(selectedId);
   }
 });

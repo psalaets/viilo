@@ -24,14 +24,12 @@ var Showoff = React.createClass({
         <div className="panel">
           <span className="subtitle">Report Result</span>
           <PlayerSelector
-            name="winnerId"
             playerSelected={this.winnerSelected}
             players={this.props.playersByName}
             defaultOptionText="Winner"
             excludeId={this.state.winnerListExcludeId}/>
           beat
           <PlayerSelector
-            name="loserId"
             playerSelected={this.loserSelected}
             players={this.props.playersByName}
             defaultOptionText="Loser"
