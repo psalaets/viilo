@@ -15,6 +15,11 @@ var PlayerSelector = React.createClass({
       playerSelected: function() {}
     };
   },
+  getInitialState: function () {
+    return {
+      selectedId: ''
+    };
+  },
   render: function() {
     var options = this.props.players.filter(function(player) {
       return player.id !== this.props.excludeId;
@@ -28,14 +33,24 @@ var PlayerSelector = React.createClass({
     options.unshift(<option key="" value="">{this.props.defaultOptionText}</option>)
 
     return (
-      <select defaultValue="" onChange={this.handleSelection}>
+      <select ref="select" value={this.state.selectedId} onChange={this.handleSelection}>
         {options}
       </select>
     );
   },
   handleSelection: function(event) {
     var selectedId = event.target.value;
+
+    this.setState({
+      selectedId: selectedId
+    });
+
     this.props.playerSelected(selectedId);
+  },
+  reset: function() {
+    this.setState({
+      selectedId: ''
+    });
   }
 });
 

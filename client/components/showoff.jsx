@@ -24,16 +24,22 @@ var Showoff = React.createClass({
         <div className="panel">
           <span className="subtitle">Report Result</span>
           <PlayerSelector
+            ref="winnerList"
             playerSelected={this.winnerSelected}
             players={this.props.playersByName}
             defaultOptionText="Winner"
             excludeId={this.state.winnerListExcludeId}/>
           beat
           <PlayerSelector
+            ref="loserList"
             playerSelected={this.loserSelected}
             players={this.props.playersByName}
             defaultOptionText="Loser"
             excludeId={this.state.loserListExcludeId}/>
+          <div>
+            <button>Submit</button>
+            <button onClick={this.resetResultPickers}>Reset</button>
+          </div>
         </div>
         <div className="panel">
           <span className="subtitle">Currently Dominating</span>
@@ -51,6 +57,13 @@ var Showoff = React.createClass({
     this.setState({
       winnerListExcludeId: id
     });
+  },
+  resetResultPickers: function() {
+    this.loserSelected(null);
+    this.refs.loserList.reset();
+
+    this.winnerSelected(null);
+    this.refs.winnerList.reset();
   }
 });
 
