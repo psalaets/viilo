@@ -18,11 +18,28 @@ var Viilo = React.createClass({
       <div>
         <TopBar/>
         <div style={wrapperDivStyle}>
-          <Showoff leader={this.props.leader}/>
+          <Showoff leader={this.props.leader} playersByName={this.playersByName()}/>
           <Leaderboard players={this.props.players}/>
         </div>
       </div>
     );
+  },
+  playersByName: function() {
+    var players = this.props.players.map(function(player) {
+      return {
+        name: player.name,
+        id: player.id
+      };
+    });
+    players.sort(function(p1, p2) {
+      if (p1.name < p2.name) {
+        return -1;
+      } else if (p1.name > p2.name) {
+        return 1;
+      }
+      return 0;
+    });
+    return players;
   }
 });
 
