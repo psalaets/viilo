@@ -36,8 +36,8 @@ app.engine('hbs', expressHandlebars({
 }));
 app.set('view engine', 'hbs');
 
-// public/foo.css is served at <host:port>/static/foo.css
-app.use('/static', express.static('public'));
+// public/foo.css is served at <host:port>/foo.css
+app.use('/', express.static('public'));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -49,7 +49,7 @@ app.use(bodyParser.json());
 Routes
 **********************/
 
-app.get('/', function(req, resp, next) {
+app.get('/leaderboard', function(req, resp, next) {
   Player.leaderboard().then(function(players) {
     resp.render('leaderboard', {
       players: renderPlayers(players)
