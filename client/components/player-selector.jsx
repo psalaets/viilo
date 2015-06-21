@@ -51,6 +51,9 @@ var PlayerSelector = React.createClass({
     this.setState({
       selectedId: ''
     });
+  },
+  getSelectedId: function() {
+    return this.state.selectedId;
   }
 });
 

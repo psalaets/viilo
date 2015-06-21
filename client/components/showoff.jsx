@@ -5,11 +5,13 @@ var PlayerSelector = require('./player-selector.jsx');
 var Showoff = React.createClass({
   propTypes: {
       leader: React.PropTypes.object.isRequired,
-      playersByName: React.PropTypes.array
+      playersByName: React.PropTypes.array,
+      resultReported: React.PropTypes.func
   },
   getDefaultProps: function () {
     return {
-      playersByName: []
+      playersByName: [],
+      resultReported: function() {}
     };
   },
   getInitialState: function () {
@@ -21,6 +23,7 @@ var Showoff = React.createClass({
   render: function() {
     return (
       <div data-showoff>
+        {/* TODO move this into its own component */}
         <div className="panel">
           <span className="subtitle">Report Result</span>
           <PlayerSelector
@@ -37,8 +40,8 @@ var Showoff = React.createClass({
             defaultOptionText="Loser"
             excludeId={this.state.loserListExcludeId}/>
           <div>
-            <button>Submit</button>
-            <button onClick={this.resetResultPickers}>Reset</button>
+            <button onClick={this.handleResultReported}>Submit</button>
+            <button onClick={this.handleReset}>Reset</button>
           </div>
         </div>
         <div className="panel">
@@ -47,6 +50,19 @@ var Showoff = React.createClass({
         </div>
       </div>
     );
+  },
+  handleResultReported: function() {
+    var winnerId = this.refs.winnerList.getSelectedId();
+    var loserId = this.refs.loserList.getSelectedId();
+
+    if (winnerId && loserId) {
+      this.props.resultReported({
+        winnerId: winnerId,
+        loserId: loserId
+      });
+
+      this.handleReset();
+    }
   },
   winnerSelected: function(id) {
     this.setState({
@@ -58,7 +74,7 @@ var Showoff = React.createClass({
       winnerListExcludeId: id
     });
   },
-  resetResultPickers: function() {
+  handleReset: function() {
     this.loserSelected(null);
     this.refs.loserList.reset();
 
