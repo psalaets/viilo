@@ -171,10 +171,16 @@ app.post('/results.json', function(req, resp) {
     return Result.record(winner, loser);
   }).then(function(newElos) {
     resp.send({
-      winnerName: newElos.winner.name,
-      winnerDelta: newElos.winner.eloDelta,
-      loserName: newElos.loser.name,
-      loserDelta: newElos.loser.eloDelta
+      winner: {
+        id: result.winnerId,
+        name: newElos.winner.name,
+        eloDelta: newElos.winner.eloDelta
+      },
+      loser: {
+        id: result.loserId,
+        name: newElos.loser.name,
+        eloDelta: newElos.loser.eloDelta
+      }
     });
   }, function(error) {
     console.log(error)

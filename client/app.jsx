@@ -5,12 +5,16 @@ var request = require('superagent');
 
 loadLeaderboard()
 
-function loadLeaderboard() {
+function loadLeaderboard(playerCallback) {
+  playerCallback = playerCallback || function(players) {return players};
+
   request
     .get('/leaderboard.json')
     .end(function(err, res) {
+      var players = playerCallback(res.body);
+
       render({
-        players: res.body
+        players: players
       })
     });
 }
@@ -20,7 +24,21 @@ function submitResult(result) {
     .post('/results.json')
     .send(result)
     .end(function(err, res) {
-      loadLeaderboard();
+      var winner = res.body.winner;
+      var loser = res.body.loser;
+
+      loadLeaderboard(function(players) {
+        players.forEach(function(player) {
+          if (player.id == winner.id) {
+            player.eloDelta = winner.eloDelta;
+          }
+
+          if (player.id == loser.id) {
+            player.eloDelta = loser.eloDelta;
+          }
+        });
+        return players;
+      });
     });
 }
 

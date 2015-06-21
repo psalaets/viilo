@@ -11,7 +11,7 @@ var Leaderboard = React.createClass({
         return (
           <tr key={player.id} className="provisional">
             <td className="rank">P</td>
-            <td className="name">{player.name}</td>
+            <td className="name">{player.name} {this.playerEloDelta(player)}</td>
             <td width="15%" className="elo">{player.elo}</td>
             <td width="10%" className="win">{player.wins}</td>
             <td width="10%" className="lose">{player.losses}</td>
@@ -23,7 +23,7 @@ var Leaderboard = React.createClass({
         return (
           <tr key={player.id}>
             <td className="rank">{player.rank}</td>
-            <td className="name">{player.name}</td>
+            <td className="name">{player.name} {this.playerEloDelta(player)}</td>
             <td width="15%" className="elo">{player.elo}</td>
             <td width="10%" className="win">{player.wins}</td>
             <td width="10%" className="lose">{player.losses}</td>
@@ -32,7 +32,7 @@ var Leaderboard = React.createClass({
           </tr>
         );
       }
-    });
+    }, this);
 
     return (
       <div data-leaderboard>
@@ -56,6 +56,15 @@ var Leaderboard = React.createClass({
         </table>
       </div>
     );
+  },
+  playerEloDelta: function(player) {
+    if ('eloDelta' in player) {
+      if (player.eloDelta >= 0) { // gained elo
+        return (<span>({player.eloDelta})</span>);
+      } else { // lost elo
+        return (<span>({player.eloDelta})</span>);
+      }
+    }
   }
 })
 
