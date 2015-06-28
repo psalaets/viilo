@@ -52,21 +52,21 @@ Routes
 app.get('/leaderboard', function(req, resp, next) {
   Player.leaderboard().then(function(players) {
     resp.render('leaderboard', {
-      players: renderPlayers(players)
+      players: players
     });
   });
 });
 
 app.get('/leaderboard.json', function(req, resp, next) {
   Player.leaderboard().then(function(players) {
-    resp.send(renderPlayers(players));
+    resp.send(players);
   });
 });
 
 app.get('/players', function(req, resp) {
   Player.list().then(function(players) {
     resp.render('players', {
-      players: renderPlayers(players),
+      players: players,
       success: req.flash('success'),
       error: req.flash('error')
     });
@@ -75,7 +75,7 @@ app.get('/players', function(req, resp) {
 
 app.get('/players.json', function(req, resp) {
   Player.list().then(function(players) {
-    resp.send(renderPlayers(players));
+    resp.send(players);
   });
 });
 
@@ -121,7 +121,7 @@ app.get('/results', function(req, resp) {
   }).then(function(data) {
     resp.render('results', {
       results: renderResults(data.results),
-      players: renderPlayers(data.players),
+      players: data.players,
       winnerMessage: req.flash('winnerMessage'),
       loserMessage: req.flash('loserMessage'),
       error: req.flash('error')
@@ -194,12 +194,6 @@ app.post('/results.json', function(req, resp) {
 function renderResults(results) {
   return results.map(function(r) {
     return r.toObject();
-  });
-}
-
-function renderPlayers(players) {
-  return players.map(function(p) {
-    return p.toObject();
   });
 }
 
