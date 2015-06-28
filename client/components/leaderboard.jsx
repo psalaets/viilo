@@ -6,33 +6,7 @@ var Leaderboard = React.createClass({
     players: React.PropTypes.array.isRequired
   },
   render: function() {
-    var rows = this.props.players.map(function(player) {
-      if (player.provisional) {
-        return (
-          <tr key={player.id} className="provisional">
-            <td className="rank">P</td>
-            <td className="name">{player.name} {this.playerEloDelta(player)}</td>
-            <td width="15%" className="elo">{player.elo}</td>
-            <td width="10%" className="win">{player.wins}</td>
-            <td width="10%" className="lose">{player.losses}</td>
-            <td width="10%" className="streak">{player.streak}</td>
-            <td width="15%" className="lastten">{player.lastTen}</td>
-          </tr>
-        );
-      } else {
-        return (
-          <tr key={player.id}>
-            <td className="rank">{player.rank}</td>
-            <td className="name">{player.name} {this.playerEloDelta(player)}</td>
-            <td width="15%" className="elo">{player.elo}</td>
-            <td width="10%" className="win">{player.wins}</td>
-            <td width="10%" className="lose">{player.losses}</td>
-            <td width="10%" className="streak">{player.streak}</td>
-            <td width="15%" className="lastten">{player.lastTen}</td>
-          </tr>
-        );
-      }
-    }, this);
+    var rows = this.createRows(this.props.players);
 
     return (
       <div data-leaderboard>
@@ -55,6 +29,44 @@ var Leaderboard = React.createClass({
           </tbody>
         </table>
       </div>
+    );
+  },
+  createRows: function(players) {
+    return players.map(function(player) {
+      return this.playerRow(player);
+    }, this);
+  },
+  playerRow: function(player) {
+    if (player.provisional) {
+      return this.provisionalRow(player);
+    } else {
+      return this.rankedRow(player);
+    }
+  },
+  rankedRow: function(player) {
+    return (
+      <tr key={player.id}>
+        <td className="rank">{player.rank}</td>
+        <td className="name">{player.name} {this.playerEloDelta(player)}</td>
+        <td width="15%" className="elo">{player.elo}</td>
+        <td width="10%" className="win">{player.wins}</td>
+        <td width="10%" className="lose">{player.losses}</td>
+        <td width="10%" className="streak">{player.streak}</td>
+        <td width="15%" className="lastten">{player.lastTen}</td>
+      </tr>
+    );
+  },
+  provisionalRow: function(player) {
+    return (
+      <tr key={player.id} className="provisional">
+        <td className="rank">P</td>
+        <td className="name">{player.name} {this.playerEloDelta(player)}</td>
+        <td width="15%" className="elo">{player.elo}</td>
+        <td width="10%" className="win">{player.wins}</td>
+        <td width="10%" className="lose">{player.losses}</td>
+        <td width="10%" className="streak">{player.streak}</td>
+        <td width="15%" className="lastten">{player.lastTen}</td>
+      </tr>
     );
   },
   playerEloDelta: function(player) {
