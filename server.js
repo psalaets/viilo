@@ -49,14 +49,6 @@ app.use(bodyParser.json());
 Routes
 **********************/
 
-app.get('/leaderboard', function(req, resp, next) {
-  Player.leaderboard().then(function(players) {
-    resp.render('leaderboard', {
-      players: players
-    });
-  });
-});
-
 app.get('/leaderboard.json', function(req, resp, next) {
   Player.leaderboard().then(function(players) {
     resp.send(players);
