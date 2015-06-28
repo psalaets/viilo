@@ -51,7 +51,7 @@ var Leaderboard = React.createClass({
         <td width="15%" className="elo">{player.elo}</td>
         <td width="10%" className="win">{player.wins}</td>
         <td width="10%" className="lose">{player.losses}</td>
-        <td width="10%" className="streak">{player.streak}</td>
+        <td width="10%" className="streak">{this.streak(player.streak)}</td>
         <td width="15%" className="lastten">{player.lastTen}</td>
       </tr>
     );
@@ -64,7 +64,7 @@ var Leaderboard = React.createClass({
         <td width="15%" className="elo">{player.elo}</td>
         <td width="10%" className="win">{player.wins}</td>
         <td width="10%" className="lose">{player.losses}</td>
-        <td width="10%" className="streak">{player.streak}</td>
+        <td width="10%" className="streak">{this.streak(player.streak)}</td>
         <td width="15%" className="lastten">{player.lastTen}</td>
       </tr>
     );
@@ -76,6 +76,16 @@ var Leaderboard = React.createClass({
       } else { // lost elo
         return (<span>({player.eloDelta})</span>);
       }
+    }
+  },
+  /**
+  * @param {object} rawStreak - Streak object from player json
+  */
+  streak: function(rawStreak) {
+    if (rawStreak.count == 0) {
+      return '-';
+    } else {
+      return rawStreak.outcome + rawStreak.count;
     }
   }
 })
