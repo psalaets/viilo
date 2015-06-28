@@ -52,7 +52,7 @@ var Leaderboard = React.createClass({
         <td width="10%" className="win">{player.wins}</td>
         <td width="10%" className="lose">{player.losses}</td>
         <td width="10%" className="streak">{this.streak(player.streak)}</td>
-        <td width="15%" className="lastten">{player.lastTen}</td>
+        <td width="15%" className="lastten">{this.lastTen(player.lastTen)}</td>
       </tr>
     );
   },
@@ -65,7 +65,7 @@ var Leaderboard = React.createClass({
         <td width="10%" className="win">{player.wins}</td>
         <td width="10%" className="lose">{player.losses}</td>
         <td width="10%" className="streak">{this.streak(player.streak)}</td>
-        <td width="15%" className="lastten">{player.lastTen}</td>
+        <td width="15%" className="lastten">{this.lastTen(player.lastTen)}</td>
       </tr>
     );
   },
@@ -87,6 +87,17 @@ var Leaderboard = React.createClass({
     } else {
       return rawStreak.outcome + rawStreak.count;
     }
+  },
+  /**
+  * @param {string[]} rawLastTen - Last ten object from player json
+  */
+  lastTen: function(rawLastTen) {
+    var counts = rawLastTen.reduce(function(prev, curr) {
+      prev[curr] += 1;
+      return prev;
+    }, {W: 0, L: 0});
+
+    return counts.W + ' - ' + counts.L;
   }
 })
 
