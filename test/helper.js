@@ -11,10 +11,10 @@ module.exports = {
   disconnect: function(cb) {
     mongoose.disconnect(cb);
   },
-  dropPlayers: function(cb) {
-    Player.remove(cb);
+  dropPlayers: function() {
+    return Player.remove();
   },
-  dropResults: function(cb) {
-    Result.remove(cb);
+  dropResults: function() {
+    return Result.remove();
   }
 };
