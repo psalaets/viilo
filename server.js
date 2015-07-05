@@ -102,6 +102,19 @@ app.post('/players.json', function(req, resp) {
   });
 });
 
+// hack for populating rank on existing data
+app.post('/players/rank.json', function(req, resp) {
+  Player.rank().then(function() {
+    resp.sendStatus(200);
+  }, function(error) {
+    console.log(error)
+
+    resp.status(500).send({
+      message: 'Could not rank players'
+    });
+  });
+});
+
 app.get('/results', function(req, resp) {
   Player.list().then(function(players) {
     return Result.recent().then(function(results) {
