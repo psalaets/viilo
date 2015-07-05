@@ -20,6 +20,7 @@ var Leaderboard = React.createClass({
               <th className="elo-heading">Elo <i className="fa fa-line-chart"></i></th>
               <th className="win-heading"><i className="fa fa-trophy"></i></th>
               <th className="lose-heading"><i className="fa fa-frown-o"></i></th>
+              <th className="percent-heading">%</th>
               <th className="streak-heading"><i className="fa fa-fire"></i></th>
               <th className="lastten-heading"><i className="fa fa-history"></i> 10</th>
             </tr>
@@ -51,6 +52,7 @@ var Leaderboard = React.createClass({
         <td width="15%" className="elo">{player.elo}</td>
         <td width="10%" className="win">{player.wins}</td>
         <td width="10%" className="lose">{player.losses}</td>
+        <td width="10%" className="percent">{this.winningPercentage(player)}</td>
         <td width="10%" className="streak">{this.streak(player.streak)}</td>
         <td width="15%" className="lastten">{this.lastTen(player.lastTen)}</td>
       </tr>
@@ -64,10 +66,29 @@ var Leaderboard = React.createClass({
         <td width="15%" className="elo">{player.elo}</td>
         <td width="10%" className="win">{player.wins}</td>
         <td width="10%" className="lose">{player.losses}</td>
+        <td width="10%" className="percent">{this.winningPercentage(player)}</td>
         <td width="10%" className="streak">{this.streak(player.streak)}</td>
         <td width="15%" className="lastten">{this.lastTen(player.lastTen)}</td>
       </tr>
     );
+  },
+  winningPercentage: function(player) {
+    var totalGames = player.wins + player.losses;
+
+    if (totalGames > 0) {
+      if (player.wins == totalGames) {
+        return '1.000';
+      } else if (player.wins == 0) {
+        return '.000';
+      } else {
+        var percent = player.wins / totalGames;
+        var fixed = percent.toFixed(3);
+        // remove leading zero
+        return fixed.slice(1);
+      }
+    } else {
+      return '-';
+    }
   },
   playerEloDelta: function(player) {
     if ('eloDelta' in player) {
