@@ -32,7 +32,7 @@ var Showoff = React.createClass({
             players={this.props.playersByName}
             defaultOptionText="Winner"
             excludeId={this.state.winnerListExcludeId}/>
-          beat
+          &nbsp;beat&nbsp;
           <PlayerSelector
             ref="loserList"
             playerSelected={this.loserSelected}
