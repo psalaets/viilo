@@ -122,6 +122,8 @@ html {
     color: #2ECC40; }
   [data-leaderboard] .lose-heading {
     color: #FF851B; }
+  [data-leaderboard] .percent-heading {
+    color: #111; }
   [data-leaderboard] .lastten-heading {
     color: #111;
     font-weight: bold; }
