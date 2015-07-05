@@ -219,21 +219,12 @@ describe('Player', function () {
 
       assert.equal(p.gamesPlayed, 3);
     });
-
-    it('is in player json', function () {
-      var p = new Player({name: 'bob'});
-
-      var json = JSON.stringify(p);
-      var restored = JSON.parse(json);
-
-      assert('gamesPlayed' in restored);
-    });
   });
 
   describe('.leaderboard()', function () {
-    it('lists players by descending elo rating', function () {
-      var adam = new Player({name: 'adam', elo: 500});
-      var bob = new Player({name: 'bob', elo: 700});
+    it('lists players by ascending rank', function () {
+      var adam = new Player({name: 'adam', rank: 2});
+      var bob = new Player({name: 'bob', rank: 1});
 
       return adam.save().then(function() {
         return bob.save();
