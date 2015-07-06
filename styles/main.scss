@@ -77,32 +77,37 @@ html {
   }
 }
 
-[showoff] {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding-top: 1.5rem;
-    background-color: lighten($silver, 10%);
-    padding-bottom: 1.5rem;
-    .panel {
-      text-align: center;
-      background: $white;
-      border-radius: 3px;
-      width: auto;
-      padding: 2rem;
-      box-shadow: 0 2px 0 0 rgba($black, .1);
-    }
-    i {
-      font-size: 3rem;
-      color: $yellow;
-      position: absolute;
-      top: 0;
-      left: -2rem;
-      transform: rotate(10deg);
-    }
+[showoff-panel] {
+  text-align: center;
+  background: $white;
+  border-radius: 3px;
+  width: auto;
+  padding: 2rem;
+  box-shadow: 0 2px 0 0 rgba($black, .1);
+  .subtitle {
+    font-weight: 100;
+    display: block;
+    font-size: 1.5rem;
+    color: $gray;
+  }
+  i {
+    font-size: 3rem;
+    color: $yellow;
+    position: absolute;
+    top: 0;
+    left: -2rem;
+    transform: rotate(10deg);
+  }
+}
 
-  .king {
+[showoff-panel] ~ [showoff-panel] {
+  margin-left: 1rem;
+}
+
+[showoff-panel~="king"] {
+  padding: 3rem;
+
+  h2 {
     display: inline-block;
     font-size: 4rem;
     // font-weight: 100;
@@ -111,16 +116,40 @@ html {
     color: $blue;
     position: relative;
   }
+}
 
-  .subtitle {
-    font-weight: 100;
-    display: block;
-    font-size: 1.5rem;
-    color: $gray;
+[showoff-panel~="selector"] {
+  .controls {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  button {
+    flex: 0 0 40%;
   }
 }
 
+[showoff] {
+    display: flex;
+    flex-direction: row;
+    // align-items: center;
+    justify-content: center;
+    padding-top: 1.5rem;
+    background-color: lighten($silver, 10%);
+    padding-bottom: 1.5rem;
+}
+
+.player-select {
+  width: 100%;
+  margin: .5rem;
+}
+
 [leaderboard] {
+  width: 100vw;
+  margin-top: $base-spacing;
+  font-size: 2rem;
+  margin-top: 2rem;
+
   h2  {
     width: 93%;
     margin-left: auto;
@@ -128,10 +157,6 @@ html {
     font-weight: 100;
     font-size: 2rem;
   }
-  width: 100vw;
-  margin-top: $base-spacing;
-  font-size: 2rem;
-  margin-top: 2rem;
 
   .provisional {
     opacity: .2;
@@ -141,6 +166,12 @@ html {
     font-weight: bold;
     text-align: left;
     padding-left: 1rem;
+  }
+
+  .winlose {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .rank {
@@ -153,14 +184,20 @@ html {
 
   .win {
     color: $green;
+    margin-right: .5rem;
   }
 
   .lose {
     color: $orange;
+    margin-left: .5rem;
   }
 
   .streak {
     color: $red;
+  }
+
+  .percent {
+    color: $gray;
   }
 
   .rank-heading {
@@ -182,19 +219,25 @@ html {
 
   .win-heading {
     color: $green;
+    margin-right: .5rem;
   }
 
   .lose-heading {
     color: $orange;
+    margin-left: .5rem;
   }
 
   .percent-heading {
-    color: $black;
+    color: $gray;
   }
 
   .lastten-heading {
     color: $black;
     font-weight: bold;
+  }
+
+  .muted {
+    color: $gray;
   }
 
   table {

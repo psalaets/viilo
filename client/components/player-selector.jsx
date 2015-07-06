@@ -33,7 +33,7 @@ var PlayerSelector = React.createClass({
     options.unshift(<option key="" value="">{this.props.defaultOptionText}</option>)
 
     return (
-      <select ref="select" value={this.state.selectedId} onChange={this.handleSelection}>
+      <select className="player-select" ref="select" value={this.state.selectedId} onChange={this.handleSelection}>
         {options}
       </select>
     );
