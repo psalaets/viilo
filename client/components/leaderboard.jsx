@@ -45,16 +45,14 @@ var Leaderboard = React.createClass({
     }, this);
   },
   playerRow: function(player) {
+    var rowClass = null;
     if (player.provisional) {
-      return this.provisionalRow(player);
-    } else {
-      return this.rankedRow(player);
+      rowClass = 'provisional';
     }
-  },
-  rankedRow: function(player) {
+
     return (
-      <tr key={player.id}>
-        <td className="rank">{player.rank}</td>
+      <tr key={player.id} className={rowClass}>
+        <td className="rank">{this.rank(player.rank)}</td>
         <td className="name">{player.name} {this.playerEloDelta(player)}</td>
         <td width="15%" className="elo">{player.elo}</td>
         <td width="8%">
@@ -70,24 +68,12 @@ var Leaderboard = React.createClass({
       </tr>
     );
   },
-  provisionalRow: function(player) {
-    return (
-      <tr key={player.id} className="provisional">
-      <td className="rank">{player.rank}</td>
-      <td className="name">{player.name} {this.playerEloDelta(player)}</td>
-      <td width="15%" className="elo">{player.elo}</td>
-      <td width="8%">
-        <div className="winlose">
-          <span className="win">{player.wins}</span>
-          <span className="muted">-</span>
-          <span className="lose">{player.losses}</span>
-        </div>
-      </td>
-      <td width="10%" className="percent">{this.winningPercentage(player)}</td>
-      <td width="10%" className="streak">{this.streak(player.streak)}</td>
-      <td width="10%" className="lastten">{this.lastTen(player.lastTen)}</td>
-      </tr>
-    );
+  rank: function(player) {
+    if (player.provisional) {
+      return 'P';
+    } else {
+      return player.rank;
+    }
   },
   //because cameron likes PERCENT, PAUL!
   winningPercentage: function(player) {
