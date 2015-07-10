@@ -49,7 +49,7 @@ var Leaderboard = React.createClass({
       // tier divider if needed
       if (player.tier !== previousTier) {
         previousTier = player.tier;
-        rows.push(this.tierDivider(player.tier));
+        rows.push(this.tierHeaderRow(player.tier));
       }
 
       // the player
@@ -62,7 +62,7 @@ var Leaderboard = React.createClass({
       return this.playerRow(player);
     }, this);
   },
-  tierDivider: function(tier) {
+  tierHeaderRow: function(tier) {
     var columns = 7;
     var tierName;
 
@@ -82,7 +82,7 @@ var Leaderboard = React.createClass({
     }
 
     return (
-      <tr><td colspan={columns}>{tierName}</td></tr>
+      <tr><td key={'tier-' + tier + '-header'} colSpan={columns}>{tierName}</td></tr>
     );
   },
   playerRow: function(player) {
