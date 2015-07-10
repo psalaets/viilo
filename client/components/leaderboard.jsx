@@ -40,9 +40,50 @@ var Leaderboard = React.createClass({
     );
   },
   createRows: function(players) {
+    var rows = [];
+
+    var previousTier;
+    for (var i = 0; i < players.length; i++) {
+      var player = players[i];
+
+      // tier divider if needed
+      if (player.tier !== previousTier) {
+        previousTier = player.tier;
+        rows.push(this.tierDivider(player.tier));
+      }
+
+      // the player
+      rows.push(this.playerRow(player));
+    }
+
+    return rows;
+
     return players.map(function(player) {
       return this.playerRow(player);
     }, this);
+  },
+  tierDivider: function(tier) {
+    var columns = 7;
+    var tierName;
+
+    switch(tier) {
+      case 1:
+        tierName = 'Diamond';
+        break;
+      case 2:
+        tierName = 'Gold';
+        break;
+      case 3:
+        tierName = 'Silver';
+        break;
+      case 4:
+        tierName = 'Bronze';
+        break;
+    }
+
+    return (
+      <tr><td colspan={columns}>{tierName}</td></tr>
+    );
   },
   playerRow: function(player) {
     var rowClass = null;
@@ -50,6 +91,7 @@ var Leaderboard = React.createClass({
       rowClass = 'provisional';
     }
 
+    // NOTE: keep 'columns' in tierDivider() in sync with number of <td> here
     return (
       <tr key={player.id} className={rowClass}>
         <td className="rank">{this.rank(player.rank)}</td>
