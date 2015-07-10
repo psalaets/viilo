@@ -57,10 +57,6 @@ var Leaderboard = React.createClass({
     }
 
     return rows;
-
-    return players.map(function(player) {
-      return this.playerRow(player);
-    }, this);
   },
   tierHeaderRow: function(tier) {
     var columns = 7;
@@ -82,7 +78,7 @@ var Leaderboard = React.createClass({
     }
 
     return (
-      <tr><td key={'tier-' + tier + '-header'} colSpan={columns}>{tierName}</td></tr>
+      <tr key={'tier-' + tier + '-header'}><td colSpan={columns}>{tierName}</td></tr>
     );
   },
   playerRow: function(player) {
@@ -94,7 +90,7 @@ var Leaderboard = React.createClass({
     // NOTE: keep 'columns' in tierDivider() in sync with number of <td> here
     return (
       <tr key={player.id} className={rowClass}>
-        <td className="rank">{this.rank(player.rank)}</td>
+        <td className="rank">{this.rank(player)}</td>
         <td className="name">{player.name} {this.playerEloDelta(player)}</td>
         <td width="15%" className="elo">{player.elo}</td>
         <td width="8%">
