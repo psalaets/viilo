@@ -59,6 +59,7 @@ var Leaderboard = React.createClass({
     return rows;
   },
   tierHeaderRow: function(tier) {
+    // NOTE: keep this in sync with number of <td> in platerRow()
     var columns = 7;
     var tierName;
 
@@ -87,7 +88,7 @@ var Leaderboard = React.createClass({
       rowClass = 'provisional';
     }
 
-    // NOTE: keep 'columns' in tierDivider() in sync with number of <td> here
+    // NOTE: keep 'columns' in tierHeaderRow() in sync with number of <td> here
     return (
       <tr key={player.id} className={rowClass}>
         <td className="rank">{this.rank(player)}</td>
