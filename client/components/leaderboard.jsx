@@ -10,7 +10,7 @@ var Leaderboard = React.createClass({
 
     return (
       <div data-leaderboard>
-        <h2>Rankings - <strong>Season 2</strong></h2>
+        <h2>Rankings - <strong>Season 3</strong></h2>
         <table>
           <thead>
             <tr>
