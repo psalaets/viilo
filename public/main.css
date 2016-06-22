@@ -6,16 +6,12 @@ html {
   margin: 0;
   padding: 1rem;
   width: 100vw;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
   color: #fff;
@@ -42,7 +38,7 @@ html {
   background: #fff;
   border-radius: 3px;
   width: auto;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 0 2px 0 0 rgba(17, 17, 17, 0.1); }
   [data-showoff-panel] .subtitle {
     font-weight: 100;
@@ -56,7 +52,6 @@ html {
     top: 0;
     left: -2rem;
     -webkit-transform: rotate(10deg);
-    -ms-transform: rotate(10deg);
     transform: rotate(10deg); }
 
 [data-showoff-panel] ~ [data-showoff-panel] {
@@ -73,27 +68,22 @@ html {
     position: relative; }
 
 [data-showoff-panel~="selector"] .controls {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
   width: 100%; }
 
 [data-showoff-panel~="selector"] button {
-  -webkit-flex: 0 0 40%;
   -ms-flex: 0 0 40%;
-  flex: 0 0 40%; }
+  flex: 0 0 40%;
+  height: 3rem; }
 
 [data-showoff] {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
   padding-top: 1.5rem;
@@ -101,8 +91,9 @@ html {
   padding-bottom: 1.5rem; }
 
 .player-select {
-  width: 100%;
-  margin: .5rem; }
+  margin: .5rem;
+  height: 4rem;
+  line-height: 4rem; }
 
 [data-leaderboard] {
   width: 100vw;
@@ -123,10 +114,8 @@ html {
     padding-left: 1rem; }
   [data-leaderboard] .winlose {
     width: 100%;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center; }
   [data-leaderboard] .rank {
