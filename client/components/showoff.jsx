@@ -25,7 +25,6 @@ var Showoff = React.createClass({
       <div data-showoff>
         {/* TODO move this into its own component */}
         <div data-showoff-panel="selector">
-          <span className="subtitle">Report Result</span>
           <PlayerSelector
             ref="winnerList"
             playerSelected={this.winnerSelected}
@@ -39,17 +38,8 @@ var Showoff = React.createClass({
             players={this.props.playersByName}
             defaultOptionText="Loser"
             excludeId={this.state.loserListExcludeId}/>
-          <div className="controls">
-            <button onClick={this.handleResultReported}>Submit</button>
-            <button onClick={this.handleReset}>Reset</button>
-          </div>
+          <button onClick={this.handleResultReported}>Log It!</button>
         </div>
-
-        <div data-showoff-panel="king">
-          <span className="subtitle">Currently Dominating</span>
-          <h2 className="king"><i className="fa fa-trophy"></i> {this.props.leader.name}</h2>
-        </div>
-
       </div>
     );
   },
