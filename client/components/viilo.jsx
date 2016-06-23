@@ -16,17 +16,12 @@ var Viilo = React.createClass({
     };
   },
   render: function () {
-    var wrapperDivStyle = {
-      paddingTop: '4.5rem'
-    };
 
     return (
       <div>
         <TopBar/>
-        <div style={wrapperDivStyle}>
-          <Showoff leader={this.props.leader} playersByName={this.playersByName()} resultReported={this.props.resultReported}/>
-          <Leaderboard players={this.props.players}/>
-        </div>
+        <Showoff leader={this.props.leader} playersByName={this.playersByName()} resultReported={this.props.resultReported}/>
+        <Leaderboard players={this.props.players}/>
       </div>
     );
   },
