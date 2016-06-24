@@ -32,7 +32,6 @@ button {
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  border-bottom: 1px solid #ddd;
   padding-bottom: 1rem;
   position: fixed;
   top: 0;
