@@ -37,7 +37,7 @@ app.engine('hbs', expressHandlebars({
 app.set('view engine', 'hbs');
 
 // public/foo.css is served at <host:port>/foo.css
-app.use('/', express.static('public'));
+app.use('/', express.static('/home/funbox/viilo/public'));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -223,7 +223,7 @@ function connectToDb(cb) {
 }
 
 function startWebServer() {
-  var server = app.listen(8080, function() {
+  var server = app.listen(80, function() {
     var host = server.address().address;
     var port = server.address().port;
 
