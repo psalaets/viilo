@@ -4,9 +4,8 @@ var PlayerSelector = require('./player-selector.jsx');
 
 var Showoff = React.createClass({
   propTypes: {
-      leader: React.PropTypes.object.isRequired,
-      playersByName: React.PropTypes.array,
-      resultReported: React.PropTypes.func
+    playersByName: React.PropTypes.array,
+    resultReported: React.PropTypes.func
   },
   getDefaultProps: function () {
     return {

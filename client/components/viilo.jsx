@@ -7,7 +7,6 @@ var TopBar = require('./top-bar.jsx');
 var Viilo = React.createClass({
   propTypes: {
     players: React.PropTypes.array.isRequired,
-    leader: React.PropTypes.object.isRequired,
     resultReported: React.PropTypes.func
   },
   getDefaultProps: function () {
@@ -19,7 +18,7 @@ var Viilo = React.createClass({
 
     return (
       <div>
-        <Showoff leader={this.props.leader} playersByName={this.playersByName()} resultReported={this.props.resultReported}/>
+        <Showoff playersByName={this.playersByName()} resultReported={this.props.resultReported}/>
         <Leaderboard players={this.props.players}/>
       </div>
     );

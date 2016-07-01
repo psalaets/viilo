@@ -50,5 +50,5 @@ function makeDeltaAdder(winner, loser) {
 function render(data) {
   var players = data.players;
 
-  React.render(<Viilo players={players} leader={players[0]} resultReported={submitResult}/>, document.getElementById('viilo'));
+  React.render(<Viilo players={players} resultReported={submitResult}/>, document.getElementById('viilo'));
 }
