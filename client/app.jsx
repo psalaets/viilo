@@ -15,7 +15,7 @@ function loadLeaderboard(playerCallback) {
 
       render({
         players: players
-      })
+      });
     });
 }
 
@@ -28,18 +28,23 @@ function submitResult(result) {
       var loser = res.body.loser;
 
       loadLeaderboard(function(players) {
-        players.forEach(function(player) {
-          if (player.id == winner.id) {
-            player.eloDelta = winner.eloDelta;
-          }
-
-          if (player.id == loser.id) {
-            player.eloDelta = loser.eloDelta;
-          }
-        });
-        return players;
+        return players.map(makeDeltaAdder(winner, loser));
       });
     });
+}
+
+function makeDeltaAdder(winner, loser) {
+  return function deltaAdder(player) {
+    if (player.id == winner.id) {
+      player.eloDelta = winner.eloDelta;
+    }
+
+    if (player.id == loser.id) {
+      player.eloDelta = loser.eloDelta;
+    }
+
+    return player;
+  };
 }
 
 function render(data) {
