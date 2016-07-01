@@ -21,7 +21,6 @@ var PlayerSelector = React.createClass({
     };
   },
   render: function() {
-    console.log(this.props);
     var options = this.props.players.filter(function(player) {
       return player.id !== this.props.excludeId;
     }, this).map(function(player) {
