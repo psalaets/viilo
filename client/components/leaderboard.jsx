@@ -126,8 +126,7 @@ var Leaderboard = React.createClass({
       } else {
         var percent = player.wins / totalGames;
         var fixed = percent.toFixed(2);
-        // remove leading zero
-        return fixed.slice(2) + '%';
+        return Number(fixed.slice(2)) + '%';
       }
     } else {
       return '-';
