@@ -29,7 +29,7 @@ var Leaderboard = React.createClass({
 
               <th className="percent-heading">%</th>
               <th className="streak-heading"><i className="fa fa-fire"></i></th>
-              <th className="lastten-heading"><i className="fa fa-history"></i> 10</th>
+              <th className="lastten-heading">L10</th>
             </tr>
           </thead>
           <tbody>
