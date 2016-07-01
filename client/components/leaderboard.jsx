@@ -90,7 +90,7 @@ var Leaderboard = React.createClass({
 
     // NOTE: keep 'columns' in tierHeaderRow() in sync with number of <td> here
     return (
-      <tr key={player.id} className={rowClass}>
+      <tr key={player.id} className={rowClass} data-player-id={player.id}>
         <td className="rank">{this.rank(player)}</td>
         <td className="name">{player.name} {this.playerEloDelta(player)}</td>
         <td width="15%" className="elo">{player.elo}</td>
