@@ -1,3 +1,4 @@
+var path = require('path');
 var mongoose = require('mongoose');
 var Promise = require('promise');
 var Player = require('./lib/player');
@@ -37,7 +38,8 @@ app.engine('hbs', expressHandlebars({
 app.set('view engine', 'hbs');
 
 // public/foo.css is served at <host:port>/foo.css
-app.use('/', express.static('/home/funbox/viilo/public'));
+var staticPath = path.resolve(__dirname, 'public');
+app.use('/', express.static(staticPath));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
