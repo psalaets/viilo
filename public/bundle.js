@@ -78,7 +78,9 @@ function scrollTarget(playerId) {
 }
 
 function topOfPlayerRow(playerId) {
-  return document.querySelector('[data-player-id="' + playerId + '"]').getBoundingClientRect().top;
+  var viewportToDocumentTop = window.scrollY;
+  var playerRowToViewport = document.querySelector('[data-player-id="' + playerId + '"]').getBoundingClientRect().top;
+  return viewportToDocumentTop + playerRowToViewport;
 }
 
 },{"./components/viilo.jsx":6,"react":162,"smoothscroll":163,"superagent":164}],2:[function(require,module,exports){

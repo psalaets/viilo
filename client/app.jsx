@@ -77,5 +77,7 @@ function scrollTarget(playerId) {
 }
 
 function topOfPlayerRow(playerId) {
-  return document.querySelector('[data-player-id="' + playerId + '"]').getBoundingClientRect().top;
+  var viewportToDocumentTop = window.scrollY;
+  var playerRowToViewport = document.querySelector('[data-player-id="' + playerId + '"]').getBoundingClientRect().top;
+  return viewportToDocumentTop + playerRowToViewport;
 }
