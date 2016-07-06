@@ -26,7 +26,7 @@ Start mongo
 
 In another terminal
 
-`gulp serve`
+`PORT=8080 gulp serve`
 
 ## Running server
 
