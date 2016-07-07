@@ -4,22 +4,22 @@ $base-font-size: 14px;
 $base-spacing: 1rem;
 $z-index-nav: 500;
 
-$aqua:  #7FDBFF;
-$blue:  #0074D9;
-$navy:  #001F3F;
-$teal:  #39CCCC;
-$green: #2ECC40;
-$olive: #3D9970;
-$lime:  #01FF70;
+$aqua:  #7fdbff;
+$blue:  #0074d9;
+$navy:  #001f3f;
+$teal:  #39cccc;
+$green: #2ecc40;
+$olive: #3d9970;
+$lime:  #01ff70;
 
-// Warm
+// warm
 
-$yellow:  #FFDC00;
-$orange:  #FF851B;
-$red:     #FF4136;
-$fuchsia: #F012BE;
-$purple:  #B10DC9;
-$maroon:  #85144B;
+$yellow:  #ffdc00;
+$orange:  #ff851b;
+$red:     #ff4136;
+$fuchsia: #f012be;
+$purple:  #b10dc9;
+$maroon:  #85144b;
 
 // Gray Scale
 
@@ -46,15 +46,15 @@ body {
 
 button {
   -webkit-appearance: none;
-  font-size: 1.5rem;
-  background-color: $blue;
-  color: $white;
+  background-color: lighten($blue, 5%);
   border: 1px solid rgba($white, .2);
   border-radius: 1000px;
-  padding: 1rem;
-  outline: none;
   box-shadow: 0 .5rem 0 0 rgba($black, .1);
+  color: $white;
+  font-size: 1.5rem;
   font-weight: bold;
+  outline: none;
+  padding: 1rem;
 
   &:hover {
     background-color: lighten($blue, 10%);
@@ -64,30 +64,30 @@ button {
 // Components: Designed components, chunks of UI.
 
 [player-select] {
+  align-items: center;
+  background-color: $blue;
+  box-shadow: 0 1rem 0 0 rgba($black, .1);
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-around;
   padding-bottom: 1rem;
   position: fixed;
   top: 0;
   width: 100vw;
-  background-color: $blue;
   z-index: 1000;
-  box-shadow: 0 1rem 0 0 rgba($black, .1);
 
   > * {
-    margin-top: 1rem;
     margin-left: .5rem;
     margin-right: .5rem;
+    margin-top: 1rem;
   }
 
   .player-select {
+    -webkit-appearance: none;
+    border-radius: 10px;
     flex: 1 0 calc(33.33% - 1rem);
     font-size: 1.5rem;
     padding: 1rem 2rem;
-    -webkit-appearance: none;
-    border-radius: 10px;
   }
 
   button {
@@ -96,16 +96,16 @@ button {
 }
 
 [leaderboard] {
-  width: 100vw;
   font-size: 2rem;
   margin-top: 8rem;
+  width: 100vw;
 
   h2 {
-    width: 93%;
+    font-size: 2rem;
+    font-weight: 100;
     margin-left: auto;
     margin-right: auto;
-    font-weight: 100;
-    font-size: 2rem;
+    width: 93%;
   }
 
   .provisional {
@@ -114,14 +114,14 @@ button {
 
   .name {
     font-weight: bold;
-    text-align: left;
     padding-left: 1rem;
+    text-align: left;
   }
 
   .winlose {
-    width: 100%;
     display: flex;
     justify-content: center;
+    width: 100%;
   }
 
   .rank {
@@ -155,8 +155,8 @@ button {
   }
 
   .name-heading {
-    text-align: left;
     padding-left: 1rem;
+    text-align: left;
   }
 
   .streak-heading {
@@ -191,9 +191,9 @@ button {
   }
 
   table {
-    width: calc(100% - 4rem);
     margin-left: auto;
     margin-right: auto;
+    width: calc(100% - 4rem);
   }
 
   td {
@@ -201,19 +201,19 @@ button {
     padding-top: $base-spacing;
 
   }
+
   thead {
     border-bottom: 2px solid $silver;
 
     th {
-      font-weight: 100;
       font-size: 1.5rem;
-      width: 20px;
+      font-weight: 100;
       padding-bottom: 1rem;
+      width: 20px;
     }
   }
 
   tbody {
-
     tr {
       border-bottom: 1px dotted $silver;
     }

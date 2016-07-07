@@ -7,28 +7,30 @@ body {
 
 button {
   -webkit-appearance: none;
-  font-size: 1.5rem;
-  background-color: #0074D9;
-  color: #fff;
+  background-color: #0082f3;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 1000px;
-  padding: 1rem;
-  outline: none;
   box-shadow: 0 0.5rem 0 0 rgba(17, 17, 17, 0.1);
-  font-weight: bold; }
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  outline: none;
+  padding: 1rem; }
   button:hover {
     background-color: #0d8eff; }
 
 [data-player-select] {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #0074d9;
+  box-shadow: 0 1rem 0 0 rgba(17, 17, 17, 0.1);
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
@@ -36,78 +38,76 @@ button {
   position: fixed;
   top: 0;
   width: 100vw;
-  background-color: #0074D9;
-  z-index: 1000;
-  box-shadow: 0 1rem 0 0 rgba(17, 17, 17, 0.1); }
+  z-index: 1000; }
   [data-player-select] > * {
-    margin-top: 1rem;
     margin-left: .5rem;
-    margin-right: .5rem; }
+    margin-right: .5rem;
+    margin-top: 1rem; }
   [data-player-select] .player-select {
+    -webkit-appearance: none;
+    border-radius: 10px;
     -webkit-flex: 1 0 calc(33.33% - 1rem);
     -ms-flex: 1 0 calc(33.33% - 1rem);
     flex: 1 0 calc(33.33% - 1rem);
     font-size: 1.5rem;
-    padding: 1rem 2rem;
-    -webkit-appearance: none;
-    border-radius: 10px; }
+    padding: 1rem 2rem; }
   [data-player-select] button {
     -webkit-flex: 1 0 calc(33.33% - 1rem);
     -ms-flex: 1 0 calc(33.33% - 1rem);
     flex: 1 0 calc(33.33% - 1rem); }
 
 [data-leaderboard] {
-  width: 100vw;
   font-size: 2rem;
-  margin-top: 8rem; }
+  margin-top: 8rem;
+  width: 100vw; }
   [data-leaderboard] h2 {
-    width: 93%;
+    font-size: 2rem;
+    font-weight: 100;
     margin-left: auto;
     margin-right: auto;
-    font-weight: 100;
-    font-size: 2rem; }
+    width: 93%; }
   [data-leaderboard] .provisional {
     opacity: .2; }
   [data-leaderboard] .name {
     font-weight: bold;
-    text-align: left;
-    padding-left: 1rem; }
+    padding-left: 1rem;
+    text-align: left; }
   [data-leaderboard] .winlose {
-    width: 100%;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
-    justify-content: center; }
+    justify-content: center;
+    width: 100%; }
   [data-leaderboard] .rank {
     font-size: 2rem; }
   [data-leaderboard] .elo {
-    color: #0074D9; }
+    color: #0074d9; }
   [data-leaderboard] .win {
-    color: #2ECC40;
+    color: #2ecc40;
     margin-right: .5rem; }
   [data-leaderboard] .lose {
-    color: #FF851B;
+    color: #ff851b;
     margin-left: .5rem; }
   [data-leaderboard] .streak {
-    color: #FF4136; }
+    color: #ff4136; }
   [data-leaderboard] .percent {
     color: #aaa; }
   [data-leaderboard] .rank-heading {
-    color: #FFDC00; }
+    color: #ffdc00; }
   [data-leaderboard] .name-heading {
-    text-align: left;
-    padding-left: 1rem; }
+    padding-left: 1rem;
+    text-align: left; }
   [data-leaderboard] .streak-heading {
-    color: #FF4136; }
+    color: #ff4136; }
   [data-leaderboard] .elo-heading {
-    color: #0074D9; }
+    color: #0074d9; }
   [data-leaderboard] .win-heading {
-    color: #2ECC40;
+    color: #2ecc40;
     margin-right: .5rem; }
   [data-leaderboard] .lose-heading {
-    color: #FF851B;
+    color: #ff851b;
     margin-left: .5rem; }
   [data-leaderboard] .percent-heading {
     color: #aaa; }
@@ -117,19 +117,19 @@ button {
   [data-leaderboard] .muted {
     color: #aaa; }
   [data-leaderboard] table {
-    width: calc(100% - 4rem);
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    width: calc(100% - 4rem); }
   [data-leaderboard] td {
     padding-bottom: 1rem;
     padding-top: 1rem; }
   [data-leaderboard] thead {
     border-bottom: 2px solid #ddd; }
     [data-leaderboard] thead th {
-      font-weight: 100;
       font-size: 1.5rem;
-      width: 20px;
-      padding-bottom: 1rem; }
+      font-weight: 100;
+      padding-bottom: 1rem;
+      width: 20px; }
   [data-leaderboard] tbody tr {
     border-bottom: 1px dotted #ddd; }
   [data-leaderboard] tbody td {
