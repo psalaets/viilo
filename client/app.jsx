@@ -38,10 +38,6 @@ function submitResult(result) {
         highestRankedOfRecentPlayers = recents[0] || null;
 
         return players.map(makeDeltaAdder(winner, loser));
-      }, function() {
-        if (highestRankedOfRecentPlayers) {
-          scrollToPlayerRow(highestRankedOfRecentPlayers.id);
-        }
       });
     });
 }
