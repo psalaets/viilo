@@ -59,8 +59,8 @@
 
   .tier {
     //currentColor picks up on the set 'color'
-    border-top: ($base-spacing * .25) solid currentColor;
-    font-weight: bold;
+    border-color: currentColor;
+    border-top-width: 2px;
     text-transform: capitalize;
   }
 

@@ -378,7 +378,7 @@ html {
 
 body {
   background-color: #fff;
-  font-family: 'Lato', sans-serif; }
+  font-family: 'Asap', sans-serif; }
 
 main {
   width: 100%; }
@@ -524,8 +524,8 @@ button {
   [data-leaderboard] .lastten-heading {
     width: 10ex; }
   [data-leaderboard] .tier {
-    border-top: 0.25rem solid currentColor;
-    font-weight: bold;
+    border-color: currentColor;
+    border-top-width: 2px;
     text-transform: capitalize; }
   [data-leaderboard] .tier-diamond {
     background-color: rgba(127, 219, 255, 0.1);
