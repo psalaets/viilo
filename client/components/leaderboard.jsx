@@ -10,23 +10,15 @@ var Leaderboard = React.createClass({
 
     return (
       <div data-leaderboard>
-        <h2>Rankings - <strong>Season 3</strong></h2>
         <table>
           <thead>
             <tr>
               <th className="rank-heading"><i className="fa fa-certificate"></i></th>
               <th className="name-heading">Name </th>
-
               <th className="elo-heading">Elo <i className="fa fa-line-chart"></i></th>
-
-              <th>
-                <div className="winlose">
-                  <span className="win-heading"><i className="fa fa-trophy"></i></span>
-                  <span className="muted">-</span>
-                  <span className="lose-heading"><i className="fa fa-frown-o"></i></span>
-                </div>
+              <th className="winlose">
+                <i className="win-heading fa fa-trophy"></i> - <i className="lose-heading fa fa-frown-o"></i>
               </th>
-
               <th className="percent-heading">%</th>
               <th className="streak-heading"><i className="fa fa-fire"></i></th>
               <th className="lastten-heading">L10</th>
@@ -65,21 +57,23 @@ var Leaderboard = React.createClass({
 
     switch(tier) {
       case 1:
-        tierName = 'Diamond';
+        tierName = 'diamond';
         break;
       case 2:
-        tierName = 'Gold';
+        tierName = 'gold';
         break;
       case 3:
-        tierName = 'Silver';
+        tierName = 'silver';
         break;
       case 4:
-        tierName = 'Bronze';
+        tierName = 'bronze';
         break;
     }
 
     return (
-      <tr key={'tier-' + tier + '-header'}><td colSpan={columns}>{tierName}</td></tr>
+      <tr className= {'great-primer tier tier-' + tierName} key={'tier-' + tier + '-header'}>
+        <td colSpan={columns}>{tierName}</td>
+      </tr>
     );
   },
   playerRow: function(player) {
@@ -92,18 +86,14 @@ var Leaderboard = React.createClass({
     return (
       <tr key={player.id} className={rowClass} data-player-id={player.id}>
         <td className="rank">{this.rank(player)}</td>
-        <td className="name">{player.name} {this.playerEloDelta(player)}</td>
-        <td width="15%" className="elo">{player.elo}</td>
-        <td width="8%">
-          <div className="winlose">
-            <span className="win">{player.wins}</span>
-            <span className="muted">-</span>
-            <span className="lose">{player.losses}</span>
-          </div>
+        <td className="name"><strong>{player.name}</strong> {this.playerEloDelta(player)}</td>
+        <td className="elo">{player.elo}</td>
+        <td className="winlose">
+          <span className="win">{player.wins}</span> - <span className="lose">{player.losses}</span>
         </td>
-        <td width="10%" className="percent">{this.winningPercentage(player)}</td>
-        <td width="10%" className="streak">{this.streak(player.streak)}</td>
-        <td width="10%" className="lastten">{this.lastTen(player.lastTen)}</td>
+        <td className="percent">{this.winningPercentage(player)}</td>
+        <td className="streak">{this.streak(player.streak)}</td>
+        <td className="lastten">{this.lastTen(player.lastTen)}</td>
       </tr>
     );
   },

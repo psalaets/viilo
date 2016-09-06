@@ -1,226 +1,27 @@
 // Let's get this shit going, ITCSS tyme
 // Settings: Global variables, config switches.
-$base-font-size: 14px;
-$base-spacing: 1rem;
-$z-index-nav: 500;
-
-$aqua:  #7fdbff;
-$blue:  #0074d9;
-$navy:  #001f3f;
-$teal:  #39cccc;
-$green: #2ecc40;
-$olive: #3d9970;
-$lime:  #01ff70;
-
-// warm
-
-$yellow:  #ffdc00;
-$orange:  #ff851b;
-$red:     #ff4136;
-$fuchsia: #f012be;
-$purple:  #b10dc9;
-$maroon:  #85144b;
-
-// Gray Scale
-
-$white:  #fff;
-$silver: #ddd;
-$gray:   #aaa;
-$black:  #111;
-
-$background-color: rgba(246, 246, 246, 1);
+@import 'settings/color';
+@import 'settings/z-index';
+@import 'settings/typography';
+@import 'settings/spacing';
 
 // Tools: Default mixins and functions.
 // Generic: Ground-zero styles (Normalize.css, resets, box-sizing).
-// Base: Unclassed HTML elements (type selectors).
-html {
-  font-size: $base-font-size;
-}
+@import 'generic/normalize';
 
-body {
-  background-color: $white;
-  font-family: 'Lato', sans-serif;
-}
+// Base: Unclassed HTML elements (type selectors).
+@import 'base/html';
+@import 'base/body';
+@import 'base/main';
+@import 'base/table';
+@import 'base/headings';
 
 // Objects: Cosmetic-free design patterns.
-
-button {
-  -webkit-appearance: none;
-  background-color: lighten($blue, 5%);
-  border: 1px solid rgba($white, .2);
-  border-radius: 1000px;
-  box-shadow: 0 .5rem 0 0 rgba($black, .1);
-  color: $white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  outline: none;
-  padding: 1rem;
-
-  &:hover {
-    background-color: lighten($blue, 10%);
-  }
-}
+@import 'object/button';
 
 // Components: Designed components, chunks of UI.
+@import 'component/player-select';
+@import 'component/leaderboard';
+@import 'component/container';
 
-[player-select] {
-  align-items: center;
-  background-color: $blue;
-  box-shadow: 0 1rem 0 0 rgba($black, .1);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-bottom: 1rem;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  z-index: 1000;
-
-  > * {
-    margin-left: .5rem;
-    margin-right: .5rem;
-    margin-top: 1rem;
-  }
-
-  .player-select {
-    -webkit-appearance: none;
-    border-radius: 10px;
-    flex: 1 0 calc(33.33% - 1rem);
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-  }
-
-  button {
-    flex: 1 0 calc(33.33% - 1rem);
-  }
-}
-
-[leaderboard] {
-  font-size: 2rem;
-  margin-top: 8rem;
-  width: 100vw;
-
-  h2 {
-    font-size: 2rem;
-    font-weight: 100;
-    margin-left: auto;
-    margin-right: auto;
-    width: 93%;
-  }
-
-  .provisional {
-    opacity: .2;
-  }
-
-  .name {
-    font-weight: bold;
-    padding-left: 1rem;
-    text-align: left;
-  }
-
-  .winlose {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .rank {
-    font-size: 2rem;
-  }
-
-  .elo {
-    color: $blue;
-  }
-
-  .win {
-    color: $green;
-    margin-right: .5rem;
-  }
-
-  .lose {
-    color: $orange;
-    margin-left: .5rem;
-  }
-
-  .streak {
-    color: $red;
-  }
-
-  .percent {
-    color: $gray;
-  }
-
-  .rank-heading {
-    color: $yellow;
-  }
-
-  .name-heading {
-    padding-left: 1rem;
-    text-align: left;
-  }
-
-  .streak-heading {
-    color: $red;
-  }
-
-  .elo-heading {
-    color: $blue;
-  }
-
-  .win-heading {
-    color: $green;
-    margin-right: .5rem;
-  }
-
-  .lose-heading {
-    color: $orange;
-    margin-left: .5rem;
-  }
-
-  .percent-heading {
-    color: $gray;
-  }
-
-  .lastten-heading {
-    color: $black;
-    font-weight: bold;
-  }
-
-  .muted {
-    color: $gray;
-  }
-
-  table {
-    margin-left: auto;
-    margin-right: auto;
-    width: calc(100% - 4rem);
-  }
-
-  td {
-    padding-bottom: $base-spacing;
-    padding-top: $base-spacing;
-
-  }
-
-  thead {
-    border-bottom: 2px solid $silver;
-
-    th {
-      font-size: 1.5rem;
-      font-weight: 100;
-      padding-bottom: 1rem;
-      width: 20px;
-    }
-  }
-
-  tbody {
-    tr {
-      border-bottom: 1px dotted $silver;
-    }
-
-    td {
-      text-align: center;
-    }
-  }
-}
 // Trumps: Helpers and overrides.

@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+}
+
+td,
+th {
+  padding-left: $base-spacing;
+  padding-right: $base-spacing;
+  padding-top: $base-spacing * .5;
+  padding-bottom: $base-spacing * .5;
+  text-align: center;
+}
+
+thead {
+  border-bottom: 2px solid $silver;
+}
+
+tr {
+  + tr {
+    border-top: 1px solid rgba($silver, .5);
+  }
+}

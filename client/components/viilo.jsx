@@ -15,12 +15,18 @@ var Viilo = React.createClass({
     };
   },
   render: function () {
+    var styles = {
+      marginTop: '7rem'
+    };
 
     return (
-      <div>
+      <main>
         <Showoff playersByName={this.playersByName()} resultReported={this.props.resultReported}/>
-        <Leaderboard players={this.props.players}/>
-      </div>
+        <section data-container>
+          <h2 className="trafalgar" style={styles}>Rankings - Season 3</h2>
+          <Leaderboard players={this.props.players}/>
+        </section>
+      </main>
     );
   },
   playersByName: function() {

@@ -1,0 +1,31 @@
+[player-select] {
+  align-items: center;
+  background-color: $blue;
+  box-shadow: 0 1rem 0 0 rgba($black, .1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  > * {
+    margin-left: .5rem;
+    margin-right: .5rem;
+    margin-top: 1rem;
+  }
+
+  .player-select {
+    -webkit-appearance: none;
+    border-radius: 10px;
+    flex: 1 0 calc(33.33% - 1rem);
+    background-color: $white;
+    padding: 1rem 2rem;
+  }
+
+  button {
+    flex: 1 0 calc(33.33% - 1rem);
+  }
+}

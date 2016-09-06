@@ -1,0 +1,86 @@
+[leaderboard] {
+  margin-top: $base-spacing;
+
+  .provisional {
+    opacity: .2;
+  }
+
+  .rank-heading {
+    color: $yellow;
+  }
+
+  .rank,
+  .rank-heading {
+    width: 2.5ex;
+  }
+
+  .name,
+  .name-heading {
+    text-align: left;
+  }
+
+  .streak,
+  .streak-heading {
+    color: $red;
+    width: 3ex;
+  }
+
+  .elo,
+  .elo-heading {
+    color: $blue;
+    width: 10ex;
+  }
+
+  .win,
+  .win-heading {
+    color: $green;
+  }
+
+  .lose,
+  .lose-heading {
+    color: $orange;
+  }
+
+  .winlose,
+  .winlose-heading {
+    width: 10ex;
+  }
+
+  .percent,
+  .percent-heading {
+    color: $gray;
+    width: 5ex;
+  }
+
+  .lastten,
+  .lastten-heading {
+    width: 10ex;
+  }
+
+  .tier {
+    //currentColor picks up on the set 'color'
+    border-top: ($base-spacing * .25) solid currentColor;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  .tier-diamond {
+    background-color: rgba($aqua, .1);
+    color: darken($aqua, 10%);
+  }
+
+  .tier-gold {
+    background-color: rgba($yellow, .1);
+    color: darken($yellow, 10%);
+  }
+
+  .tier-silver {
+    background-color: rgba($silver, .1);
+    color: darken($silver, 10%);
+  }
+
+  .tier-bronze {
+    background-color: rgba($orange, .1);
+    color: darken($orange, 10%);
+  }
+}

@@ -1,0 +1,43 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.canon {
+  font-size: $canon;
+}
+
+.trafalgar {
+  font-size: $trafalgar;
+}
+
+.double-pica {
+  font-size: $double-pica;
+}
+
+.great-primer {
+  font-size: $great-primer;
+}
+
+.pica {
+  font-size: $pica;
+}
+
+.long-primer {
+  font-size: $long-primer;
+}
+
+.brevier {
+  font-size: $brevier;
+}
+
+.minion {
+  font-size: $minion;
+}

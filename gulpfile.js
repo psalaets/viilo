@@ -14,7 +14,8 @@ var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 
 var paths = {
-    styles: 'styles/main.scss',
+    styleManifest: 'styles/main.scss',
+    styleWatch: 'styles/**/*.scss',
     dist: 'public/',
     js: 'client/**/*'
 };
@@ -55,7 +56,7 @@ function makeBundle(watch) {
 }
 
 gulp.task('sass', function () {
-  gulp.src(paths.styles)
+  gulp.src(paths.styleManifest)
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefix({
             browsers: ['> 1%', 'last 2 versions', 'IE 10'],
@@ -68,7 +69,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', ['watchify'], function() {
-    gulp.watch([paths.styles], ['sass']);
+    gulp.watch([paths.styleWatch], ['sass']);
     gulp.watch(paths.dist + 'bundle.js', browserSync.reload);
 });
 
