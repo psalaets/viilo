@@ -473,12 +473,14 @@ button {
     margin-right: .5rem;
     margin-top: 1rem; }
   [data-player-select] .player-select {
+    -moz-appearance: none;
     -webkit-appearance: none;
+    background-color: #fff;
+    border: 0;
     border-radius: 10px;
     -webkit-flex: 1 0 calc(33.33% - 1rem);
     -ms-flex: 1 0 calc(33.33% - 1rem);
     flex: 1 0 calc(33.33% - 1rem);
-    background-color: #fff;
     padding: 1rem 2rem; }
   [data-player-select] button {
     -webkit-flex: 1 0 calc(33.33% - 1rem);
