@@ -1,0 +1,42 @@
+$triple: (
+  layout-name: 'triple',
+  margin-size: $base-spacing,
+  breakpoints: (
+    mobile-small: (
+      size: $breakpoint-mobile-small,
+      area: (
+        generic: (
+          grow: 1,
+          shrink: 1,
+          basis: 100%,
+          order: 0,
+          margin: (
+            bottom: true,
+            left: true,
+            right: true,
+            top: true
+          )
+        )
+      )
+    ),
+    tablet: (
+      size: $breakpoint-tablet,
+      area: (
+        generic: (
+          grow: 0,
+          shrink: 0,
+          basis: 33.33%,
+          order: 1,
+          margin: (
+            bottom: true,
+            left: true,
+            right: true,
+            top: true
+          )
+        )
+      )
+    )
+  )
+);
+
+@include semantic-layout($triple);

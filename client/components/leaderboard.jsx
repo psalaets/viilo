@@ -17,7 +17,7 @@ var Leaderboard = React.createClass({
               <th className="name-heading">Name </th>
               <th className="elo-heading">Elo <i className="fa fa-line-chart"></i></th>
               <th className="winlose">
-                <i className="win-heading fa fa-trophy"></i> - <i className="lose-heading fa fa-frown-o"></i>
+                <i className="win-heading fa fa-trophy"></i> &middot; <i className="lose-heading fa fa-frown-o"></i>
               </th>
               <th className="percent-heading">%</th>
               <th className="streak-heading"><i className="fa fa-fire"></i></th>
@@ -54,25 +54,30 @@ var Leaderboard = React.createClass({
     // NOTE: keep this in sync with number of <td> in platerRow()
     var columns = 7;
     var tierName;
+    var tierIcon;
 
     switch(tier) {
       case 1:
         tierName = 'diamond';
+        tierIcon = 'diamond';
         break;
       case 2:
         tierName = 'gold';
+        tierIcon = 'trophy';
         break;
       case 3:
         tierName = 'silver';
+        tierIcon = 'shield';
         break;
       case 4:
         tierName = 'bronze';
+        tierIcon = 'circle';
         break;
     }
 
     return (
-      <tr className= {'great-primer tier tier-' + tierName} key={'tier-' + tier + '-header'}>
-        <td colSpan={columns}>{tierName}</td>
+      <tr className={'great-primer tier tier-' + tierName} key={'tier-' + tier + '-header'}>
+        <td colSpan={columns}>{tierName} &middot; <i className={'fa fa-' + tierIcon} aria-hidden="true"></i></td>
       </tr>
     );
   },
@@ -86,10 +91,10 @@ var Leaderboard = React.createClass({
     return (
       <tr key={player.id} className={rowClass} data-player-id={player.id}>
         <td className="rank">{this.rank(player)}</td>
-        <td className="name"><strong>{player.name}</strong> {this.playerEloDelta(player)}</td>
+        <td className="name">{player.name} {this.playerEloDelta(player)}</td>
         <td className="elo">{player.elo}</td>
         <td className="winlose">
-          <span className="win">{player.wins}</span> - <span className="lose">{player.losses}</span>
+          <span className="win">{player.wins}</span> &middot; <span className="lose">{player.losses}</span>
         </td>
         <td className="percent">{this.winningPercentage(player)}</td>
         <td className="streak">{this.streak(player.streak)}</td>
@@ -150,7 +155,7 @@ var Leaderboard = React.createClass({
       return prev;
     }, {W: 0, L: 0});
 
-    return counts.W + ' - ' + counts.L;
+    return counts.W + ' · ' + counts.L;
   }
 })
 

@@ -22,19 +22,37 @@ var Showoff = React.createClass({
   render: function() {
     return (
       <div data-player-select>
-        <PlayerSelector
-          ref="winnerList"
-          playerSelected={this.winnerSelected}
-          players={this.props.playersByName}
-          defaultOptionText="Winner"
-          excludeId={this.state.winnerListExcludeId}/>
-        <PlayerSelector
-          ref="loserList"
-          playerSelected={this.loserSelected}
-          players={this.props.playersByName}
-          defaultOptionText="Loser"
-          excludeId={this.state.loserListExcludeId}/>
-        <button onClick={this.handleResultReported}>Log It!</button>
+        <div data-layout="triple">
+
+          <div data-area="generic">
+            <div className="wrapper">
+              <PlayerSelector
+                ref="winnerList"
+                playerSelected={this.winnerSelected}
+                players={this.props.playersByName}
+                defaultOptionText="Winner"
+                excludeId={this.state.winnerListExcludeId}/>
+            </div>
+          </div>
+
+          <div data-area="generic">
+            <div className="wrapper">
+              <PlayerSelector
+                ref="loserList"
+                playerSelected={this.loserSelected}
+                players={this.props.playersByName}
+                defaultOptionText="Loser"
+                excludeId={this.state.loserListExcludeId}/>
+            </div>
+          </div>
+
+          <div data-area="generic">
+            <div className="wrapper">
+              <button onClick={this.handleResultReported}>Log It!</button>
+            </div>
+          </div>
+
+        </div>
       </div>
     );
   },

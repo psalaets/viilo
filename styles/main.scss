@@ -6,6 +6,7 @@
 @import 'settings/spacing';
 
 // Tools: Default mixins and functions.
+@import 'tools/layout';
 // Generic: Ground-zero styles (Normalize.css, resets, box-sizing).
 @import 'generic/normalize';
 
@@ -18,10 +19,14 @@
 
 // Objects: Cosmetic-free design patterns.
 @import 'object/button';
+@import 'object/select';
+
+// Layouts
+@import 'layout/triple';
+@import 'layout/main-page';
 
 // Components: Designed components, chunks of UI.
 @import 'component/player-select';
 @import 'component/leaderboard';
-@import 'component/container';
 
 // Trumps: Helpers and overrides.

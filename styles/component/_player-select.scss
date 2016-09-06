@@ -1,33 +1,18 @@
 [player-select] {
-  align-items: center;
-  background-color: $blue;
-  box-shadow: 0 1rem 0 0 rgba($black, .1);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-bottom: 1rem;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: $z-index-nav;
+  //Paint
+  background-color: $blue;
+  box-shadow: 0 1rem 0 0 rgba($black, .1);
 
-  > * {
-    margin-left: .5rem;
-    margin-right: .5rem;
-    margin-top: 1rem;
-  }
-
-  .player-select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: $white;
-    border: 0;
-    border-radius: 10px;
-    flex: 1 0 calc(33.33% - 1rem);
+  select {
     padding: 1rem 2rem;
   }
 
+  select,
   button {
-    flex: 1 0 calc(33.33% - 1rem);
+    width: 100%;
   }
 }
