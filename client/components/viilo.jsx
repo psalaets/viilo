@@ -2,7 +2,7 @@ var React = require('react');
 
 var Leaderboard = require('./leaderboard.jsx');
 var Showoff = require('./showoff.jsx');
-var TopBar = require('./top-bar.jsx');
+var Overlay = require('./overlay.jsx');
 
 var Viilo = React.createClass({
   propTypes: {
@@ -14,20 +14,34 @@ var Viilo = React.createClass({
       resultReported: function() {}
     };
   },
+  getInitialState: function () {
+    return { mainOverlayState: false };
+  },
+  toggleMainOverlayState: function(e) {
+    this.state.mainOverlayState ? this.setState({ mainOverlayState: false }) : this.setState({ mainOverlayState: true });
+  },
   render: function () {
-
     return (
-      <main>
-        <Showoff playersByName={this.playersByName()} resultReported={this.props.resultReported}/>
-        <div data-layout="main-page">
-          <main data-area="main">
-            <div className="wrapper">
-              <h2 className="trafalgar">Rankings &middot; Season 3</h2>
-              <Leaderboard players={this.props.players}/>
-            </div>
-          </main>
-        </div>
-      </main>
+      <div>
+        <Overlay active={this.state.mainOverlayState} toggle={this.toggleMainOverlayState} title="this is an overlay">
+          <strong> Works </strong>
+        </Overlay>
+        <main>
+          <Showoff playersByName={this.playersByName()} resultReported={this.props.resultReported}/>
+          <div data-layout="main-page">
+            <header data-area="title">
+              <div className="wrapper">
+                <h2 className="trafalgar">Rankings &middot; Season 3</h2>
+              </div>
+            </header>
+            <main data-area="main">
+              <div className="wrapper">
+                <Leaderboard players={this.props.players}/>
+              </div>
+            </main>
+          </div>
+        </main>
+      </div>
     );
   },
   playersByName: function() {

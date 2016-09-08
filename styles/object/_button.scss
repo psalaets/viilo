@@ -1,13 +1,14 @@
 button {
   -webkit-appearance: none;
+  outline: none;
+  padding: $base-spacing;
+  //paint
   background-color: lighten($blue, 5%);
   border: 1px solid rgba($white, .2);
   border-radius: 1000px;
   box-shadow: 0 .5rem 0 0 rgba($black, .1);
-  color: $white;
   font-weight: bold;
-  outline: none;
-  padding: 1rem;
+  color: $white;
 
   &:hover {
     background-color: lighten($blue, 10%);

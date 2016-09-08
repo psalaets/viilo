@@ -15,7 +15,7 @@ var Leaderboard = React.createClass({
             <tr>
               <th className="rank-heading"><i className="fa fa-certificate"></i></th>
               <th className="name-heading">Name </th>
-              <th className="elo-heading">Elo <i className="fa fa-line-chart"></i></th>
+              <th className="elo-heading">Elo</th>
               <th className="winlose">
                 <i className="win-heading fa fa-trophy"></i> &middot; <i className="lose-heading fa fa-frown-o"></i>
               </th>

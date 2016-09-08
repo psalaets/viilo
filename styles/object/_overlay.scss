@@ -1,0 +1,48 @@
+[overlay] {
+  height: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $z-index-overlay;
+
+  .bounds {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 0;
+    transform: translateY(-150%);
+    transition: transform .5s;
+    width: calc(100% - (#{$base-spacing} * 2));
+    z-index: $z-index-overlay + 1;
+    //paint
+    @include box-shadow($base-spacing);
+    background-color: $white;
+  }
+
+  .overlay-close {
+    cursor: default;
+    line-height: 1.6rem;
+    //paint
+    color: $silver;
+
+    &:hover,
+    &:active {
+      //paint
+      color: $gray;
+    }
+  }
+
+  .scroll-box {
+    max-height: 70vh;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+  }
+}
+
+[overlay~="active"] {
+  height: 100vh;
+
+  .bounds {
+    transform: translateY(-1px);
+  }
+}

@@ -5,16 +5,28 @@ $triple: (
     mobile-small: (
       size: $breakpoint-mobile-small,
       area: (
-        generic: (
+        select: (
+          grow: 1,
+          shrink: 1,
+          basis: 50%,
+          order: 0,
+          margin: (
+            bottom: $base-spacing / 2,
+            left: $base-spacing / 2,
+            right: $base-spacing / 2,
+            top: $base-spacing / 2
+          )
+        ),
+        button: (
           grow: 1,
           shrink: 1,
           basis: 100%,
           order: 0,
           margin: (
-            bottom: true,
-            left: true,
-            right: true,
-            top: true
+            bottom: $base-spacing / 2,
+            left: $base-spacing / 2,
+            right: $base-spacing / 2,
+            top: false
           )
         )
       )
@@ -22,7 +34,19 @@ $triple: (
     tablet: (
       size: $breakpoint-tablet,
       area: (
-        generic: (
+        select: (
+          grow: 0,
+          shrink: 0,
+          basis: 33.33%,
+          order: 1,
+          margin: (
+            bottom: true,
+            left: true,
+            right: true,
+            top: true
+          )
+        ),
+        button: (
           grow: 0,
           shrink: 0,
           basis: 33.33%,

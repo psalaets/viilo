@@ -1,5 +1,5 @@
-$main-page: (
-  layout-name: 'main-page',
+$overlay: (
+  layout-name: 'overlay',
   margin-size: $base-spacing,
   breakpoints: (
     mobile-small: (
@@ -8,25 +8,37 @@ $main-page: (
         title: (
           grow: 1,
           shrink: 1,
-          basis: 100%,
+          basis: 0%,
           order: 0,
           margin: (
-            bottom: false,
+            bottom: true,
             left: true,
             right: true,
-            top: 7rem
+            top: true
+          )
+        ),
+        close: (
+          grow: 0,
+          shrink: 0,
+          basis: 3rem,
+          order: 0,
+          margin: (
+            bottom: true,
+            left: true,
+            right: true,
+            top: true
           )
         ),
         main: (
           grow: 1,
           shrink: 1,
           basis: 100%,
-          order: 0,
+          order: 1,
           margin: (
             bottom: true,
-            left: false,
-            right: false,
-            top: true
+            left: true,
+            right: true,
+            top: false
           )
         )
       )
@@ -35,27 +47,39 @@ $main-page: (
       size: $breakpoint-tablet,
       area: (
         title: (
-          grow: 0,
-          shrink: 0,
-          basis: 100%,
-          order: 1,
-          margin: (
-            bottom: true,
-            left: true,
-            right: true,
-            top: 7rem
-          )
-        ),
-        main: (
-          grow: 0,
-          shrink: 0,
-          basis: 100%,
-          order: 1,
+          grow: 1,
+          shrink: 1,
+          basis: 0%,
+          order: 0,
           margin: (
             bottom: true,
             left: true,
             right: true,
             top: true
+          )
+        ),
+        close: (
+          grow: 0,
+          shrink: 0,
+          basis: 3rem,
+          order: 0,
+          margin: (
+            bottom: true,
+            left: true,
+            right: true,
+            top: true
+          )
+        ),
+        main: (
+          grow: 1,
+          shrink: 1,
+          basis: 100%,
+          order: 1,
+          margin: (
+            bottom: true,
+            left: true,
+            right: true,
+            top: false
           )
         )
       )
@@ -63,4 +87,4 @@ $main-page: (
   )
 );
 
-@include semantic-layout($main-page);
+@include semantic-layout($overlay);

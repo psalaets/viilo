@@ -1,0 +1,6 @@
+p {
+  margin: 0;
+  + p {
+    margin-top: $base-spacing;
+  }
+}

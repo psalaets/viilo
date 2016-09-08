@@ -83,4 +83,13 @@
     background-color: rgba($orange, .1);
     color: darken($orange, 10%);
   }
+  //disableing for mobile view to save space.
+  @media (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-tablet) {
+    .percent,
+    .percent-heading,
+    .lastten,
+    .lastten-heading {
+      display: none;
+    }
+  }
 }

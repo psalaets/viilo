@@ -24,7 +24,7 @@ var Showoff = React.createClass({
       <div data-player-select>
         <div data-layout="triple">
 
-          <div data-area="generic">
+          <div data-area="select">
             <div className="wrapper">
               <PlayerSelector
                 ref="winnerList"
@@ -35,7 +35,7 @@ var Showoff = React.createClass({
             </div>
           </div>
 
-          <div data-area="generic">
+          <div data-area="select">
             <div className="wrapper">
               <PlayerSelector
                 ref="loserList"
@@ -46,7 +46,7 @@ var Showoff = React.createClass({
             </div>
           </div>
 
-          <div data-area="generic">
+          <div data-area="button">
             <div className="wrapper">
               <button onClick={this.handleResultReported}>Log It!</button>
             </div>

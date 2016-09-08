@@ -97,7 +97,7 @@ var Leaderboard = React.createClass({displayName: "Leaderboard",
             React.createElement("tr", null, 
               React.createElement("th", {className: "rank-heading"}, React.createElement("i", {className: "fa fa-certificate"})), 
               React.createElement("th", {className: "name-heading"}, "Name "), 
-              React.createElement("th", {className: "elo-heading"}, "Elo ", React.createElement("i", {className: "fa fa-line-chart"})), 
+              React.createElement("th", {className: "elo-heading"}, "Elo"), 
               React.createElement("th", {className: "winlose"}, 
                 React.createElement("i", {className: "win-heading fa fa-trophy"}), " · ", React.createElement("i", {className: "lose-heading fa fa-frown-o"})
               ), 
@@ -246,6 +246,56 @@ module.exports = Leaderboard;
 },{"react":162}],3:[function(require,module,exports){
 var React = require('react');
 
+var Overlay = React.createClass({displayName: "Overlay",
+  render: function() {
+    var traits = makeTraits(this.props);
+    var toggle = this.props.toggle;
+    var overlayTitle = this.props.title;
+
+    return (
+      React.createElement("div", {"data-overlay": traits, onClick: toggle}, 
+        React.createElement("div", {className: "bounds", onClick: this.nullClick}, 
+          React.createElement("div", {"data-layout": "overlay"}, 
+            React.createElement("div", {"data-area": "title"}, 
+              React.createElement("div", {className: "wrapper"}, 
+                React.createElement("h2", {className: "trafalgar"}, overlayTitle)
+              )
+            ), 
+            React.createElement("div", {"data-area": "close"}, 
+              React.createElement("div", {className: "wrapper"}, 
+                React.createElement("span", {className: "overlay-close canon", onClick: toggle}, "×")
+              )
+            ), 
+            React.createElement("main", {"data-area": "main"}, 
+              React.createElement("div", {className: "wrapper scroll-box"}, 
+                this.props.children
+              )
+            )
+          )
+        )
+      )
+    );
+  },
+  nullClick: function(e) {
+    e.stopPropagation();
+  }
+});
+
+var makeTraits = function(props) {
+  var traits = [];
+
+  if (props.active) {
+    traits.push('active');
+  }
+
+  return traits.join(' ');
+}
+
+module.exports = Overlay;
+
+},{"react":162}],4:[function(require,module,exports){
+var React = require('react');
+
 var PlayerSelector = React.createClass({displayName: "PlayerSelector",
   propTypes: {
     players: React.PropTypes.array,
@@ -305,7 +355,7 @@ var PlayerSelector = React.createClass({displayName: "PlayerSelector",
 
 module.exports = PlayerSelector;
 
-},{"react":162}],4:[function(require,module,exports){
+},{"react":162}],5:[function(require,module,exports){
 var React = require('react');
 
 var PlayerSelector = require('./player-selector.jsx');
@@ -332,7 +382,7 @@ var Showoff = React.createClass({displayName: "Showoff",
       React.createElement("div", {"data-player-select": true}, 
         React.createElement("div", {"data-layout": "triple"}, 
 
-          React.createElement("div", {"data-area": "generic"}, 
+          React.createElement("div", {"data-area": "select"}, 
             React.createElement("div", {className: "wrapper"}, 
               React.createElement(PlayerSelector, {
                 ref: "winnerList", 
@@ -343,7 +393,7 @@ var Showoff = React.createClass({displayName: "Showoff",
             )
           ), 
 
-          React.createElement("div", {"data-area": "generic"}, 
+          React.createElement("div", {"data-area": "select"}, 
             React.createElement("div", {className: "wrapper"}, 
               React.createElement(PlayerSelector, {
                 ref: "loserList", 
@@ -354,7 +404,7 @@ var Showoff = React.createClass({displayName: "Showoff",
             )
           ), 
 
-          React.createElement("div", {"data-area": "generic"}, 
+          React.createElement("div", {"data-area": "button"}, 
             React.createElement("div", {className: "wrapper"}, 
               React.createElement("button", {onClick: this.handleResultReported}, "Log It!")
             )
@@ -398,28 +448,12 @@ var Showoff = React.createClass({displayName: "Showoff",
 
 module.exports = Showoff;
 
-},{"./player-selector.jsx":3,"react":162}],5:[function(require,module,exports){
-var React = require('react');
-
-var TopBar = React.createClass({displayName: "TopBar",
-  render: function() {
-    return (
-      React.createElement("div", {"data-top-bar": true}, 
-        React.createElement("img", {src: "img/logo.png", alt: ""}), 
-        React.createElement("h1", null, React.createElement("a", {href: "/"}, "King of Pong"))
-      )
-    );
-  }
-});
-
-module.exports = TopBar;
-
-},{"react":162}],6:[function(require,module,exports){
+},{"./player-selector.jsx":4,"react":162}],6:[function(require,module,exports){
 var React = require('react');
 
 var Leaderboard = require('./leaderboard.jsx');
 var Showoff = require('./showoff.jsx');
-var TopBar = require('./top-bar.jsx');
+var Overlay = require('./overlay.jsx');
 
 var Viilo = React.createClass({displayName: "Viilo",
   propTypes: {
@@ -431,16 +465,30 @@ var Viilo = React.createClass({displayName: "Viilo",
       resultReported: function() {}
     };
   },
+  getInitialState: function () {
+    return { mainOverlayState: false };
+  },
+  toggleMainOverlayState: function(e) {
+    this.state.mainOverlayState ? this.setState({ mainOverlayState: false }) : this.setState({ mainOverlayState: true });
+  },
   render: function () {
-
     return (
-      React.createElement("main", null, 
-        React.createElement(Showoff, {playersByName: this.playersByName(), resultReported: this.props.resultReported}), 
-        React.createElement("div", {"data-layout": "main-page"}, 
-          React.createElement("main", {"data-area": "main"}, 
-            React.createElement("div", {className: "wrapper"}, 
-              React.createElement("h2", {className: "trafalgar"}, "Rankings · Season 3"), 
-              React.createElement(Leaderboard, {players: this.props.players})
+      React.createElement("div", null, 
+        React.createElement(Overlay, {active: this.state.mainOverlayState, toggle: this.toggleMainOverlayState, title: "this is an overlay"}, 
+          React.createElement("strong", null, " Works ")
+        ), 
+        React.createElement("main", null, 
+          React.createElement(Showoff, {playersByName: this.playersByName(), resultReported: this.props.resultReported}), 
+          React.createElement("div", {"data-layout": "main-page"}, 
+            React.createElement("header", {"data-area": "title"}, 
+              React.createElement("div", {className: "wrapper"}, 
+                React.createElement("h2", {className: "trafalgar"}, "Rankings · Season 3")
+              )
+            ), 
+            React.createElement("main", {"data-area": "main"}, 
+              React.createElement("div", {className: "wrapper"}, 
+                React.createElement(Leaderboard, {players: this.props.players})
+              )
             )
           )
         )
@@ -468,7 +516,7 @@ var Viilo = React.createClass({displayName: "Viilo",
 
 module.exports = Viilo;
 
-},{"./leaderboard.jsx":2,"./showoff.jsx":4,"./top-bar.jsx":5,"react":162}],7:[function(require,module,exports){
+},{"./leaderboard.jsx":2,"./overlay.jsx":3,"./showoff.jsx":5,"react":162}],7:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
