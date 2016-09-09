@@ -22,26 +22,24 @@ var Viilo = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <main>
         <Overlay active={this.state.mainOverlayState} toggle={this.toggleMainOverlayState} title="this is an overlay">
           <strong> Works </strong>
         </Overlay>
-        <main>
-          <Showoff playersByName={this.playersByName()} resultReported={this.props.resultReported}/>
-          <div data-layout="main-page">
-            <header data-area="title">
-              <div className="wrapper">
-                <h2 className="trafalgar">Rankings &middot; Season 3</h2>
-              </div>
-            </header>
-            <main data-area="main">
-              <div className="wrapper">
-                <Leaderboard players={this.props.players}/>
-              </div>
-            </main>
-          </div>
-        </main>
-      </div>
+        <Showoff playersByName={this.playersByName()} resultReported={this.props.resultReported}/>
+        <div data-layout="main-page">
+          <header data-area="title">
+            <div className="wrapper">
+              <h2 className="trafalgar" onClick={this.toggleMainOverlayState}>Rankings &middot; Season 3</h2>
+            </div>
+          </header>
+          <main data-area="main">
+            <div className="wrapper">
+              <Leaderboard players={this.props.players}/>
+            </div>
+          </main>
+        </div>
+      </main>
     );
   },
   playersByName: function() {

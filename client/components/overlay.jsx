@@ -1,6 +1,10 @@
 var React = require('react');
 
 var Overlay = React.createClass({
+  propTypes: {
+    toggle: React.PropTypes.func.isRequired,
+    title: React.PropTypes.string.isRequired
+  },
   render: function() {
     var traits = makeTraits(this.props);
     var toggle = this.props.toggle;
@@ -12,7 +16,7 @@ var Overlay = React.createClass({
           <div data-layout="overlay">
             <div data-area="title">
               <div className="wrapper">
-                <h2 className="trafalgar">{overlayTitle}</h2>
+                <h2 className="double-pica">{overlayTitle}</h2>
               </div>
             </div>
             <div data-area="close">

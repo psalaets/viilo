@@ -548,7 +548,7 @@ select {
   background-repeat: no-repeat;
   background-size: 0.5rem 0.5rem;
   border: 0;
-  border-radius: 10px;
+  border-radius: 1rem;
   padding: 0.5rem 1.5rem; }
 
 [data-overlay] {
@@ -565,12 +565,13 @@ select {
     -webkit-transform: translateY(-150%);
     -ms-transform: translateY(-150%);
     transform: translateY(-150%);
-    transition: -webkit-transform 0.5s;
-    transition: transform 0.5s;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
     width: calc(100% - (1rem * 2));
     z-index: 2001;
     box-shadow: 0 1rem 0 0.2rem rgba(17, 17, 17, 0.1);
-    background-color: #fff; }
+    background-color: #fff;
+    border-radius: 0 0 1rem 1rem; }
   [data-overlay] .overlay-close {
     cursor: default;
     line-height: 1.6rem;

@@ -11,12 +11,13 @@
     position: relative;
     top: 0;
     transform: translateY(-150%);
-    transition: transform .5s;
+    transition: transform .3s ease-out;
     width: calc(100% - (#{$base-spacing} * 2));
     z-index: $z-index-overlay + 1;
     //paint
     @include box-shadow($base-spacing);
     background-color: $white;
+    border-radius: 0 0 1rem 1rem;
   }
 
   .overlay-close {
