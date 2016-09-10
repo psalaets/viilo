@@ -4,16 +4,21 @@
   width: 100%;
   z-index: $z-index-nav;
   //Paint
-  background-color: $blue;
   @include box-shadow($base-spacing);
+  background-color: $blue;
 
   select {
     padding: $base-spacing ($base-spacing * 2);
   }
 
+  button {
+    color: $white;
+  }
+
   select,
   button {
     width: 100%;
+
     @media (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-tablet) {
       padding: .5rem 1rem;
     }

@@ -20,17 +20,10 @@
     border-radius: 0 0 1rem 1rem;
   }
 
-  .overlay-close {
-    cursor: default;
-    line-height: 1.6rem;
-    //paint
-    color: $silver;
-
-    &:hover,
-    &:active {
-      //paint
-      color: $gray;
-    }
+  button {
+    width: 100%;
+    color: $gray;
+    display: block;
   }
 
   .scroll-box {

@@ -21,7 +21,7 @@ var Overlay = React.createClass({
             </div>
             <div data-area="close">
               <div className="wrapper">
-                <span className="overlay-close canon" onClick={toggle}>&times;</span>
+                <button onClick={toggle}>Close</button>
               </div>
             </div>
             <main data-area="main">

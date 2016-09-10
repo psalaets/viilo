@@ -267,7 +267,7 @@ var Overlay = React.createClass({displayName: "Overlay",
             ), 
             React.createElement("div", {"data-area": "close"}, 
               React.createElement("div", {className: "wrapper"}, 
-                React.createElement("span", {className: "overlay-close canon", onClick: toggle}, "×")
+                React.createElement("button", {onClick: toggle}, "Close")
               )
             ), 
             React.createElement("main", {"data-area": "main"}, 

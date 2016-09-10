@@ -1,36 +1,38 @@
 // Let's get this shit going, ITCSS tyme
 // Settings: Global variables, config switches.
 @import 'settings/color';
-@import 'settings/z-index';
-@import 'settings/typography';
 @import 'settings/spacing';
+@import 'settings/typography';
+@import 'settings/z-index';
 
 // Tools: Default mixins and functions.
-@import 'tools/layout';
 @import 'tools/box-shadow';
+@import 'tools/layout';
 // Generic: Ground-zero styles (Normalize.css, resets, box-sizing).
+@import 'generic/animation';
 @import 'generic/normalize';
+@import 'generic/box-sizing';
 
 // Base: Unclassed HTML elements (type selectors).
-@import 'base/html';
 @import 'base/body';
-@import 'base/main';
-@import 'base/table';
 @import 'base/headings';
+@import 'base/html';
+@import 'base/main';
 @import 'base/paragraph';
+@import 'base/table';
 
 // Objects: Cosmetic-free design patterns.
 @import 'object/button';
 @import 'object/select';
-@import 'object/overlay';
 
 // Layouts
-@import 'layout/triple';
 @import 'layout/main-page';
 @import 'layout/overlay';
+@import 'layout/triple';
 
 // Components: Designed components, chunks of UI.
-@import 'component/player-select';
 @import 'component/leaderboard';
+@import 'component/overlay';
+@import 'component/player-select';
 
 // Trumps: Helpers and overrides.

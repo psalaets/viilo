@@ -1,0 +1,13 @@
+html {
+  // Making font rendering tweaks here - 05/07/15 - CBL
+  // Fonts on OS X will look more consistent with other systems that do not
+  // render text using sub-pixel anti-aliasing.
+
+  // Although grayscale is inferior to sub-pixel anti-aliasing, most fonts were
+  // designed for the "thinner" anti-aliasing and look better that way.
+  // Setting this smoothing beforehand prevents an ugly flickering of font
+  // "thickness" when animations start and stop. Browsers use this simpler font
+  // smoothing to save on resources when animating or transitioning elements.
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
