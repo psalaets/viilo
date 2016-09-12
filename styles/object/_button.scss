@@ -2,21 +2,21 @@ button {
   -webkit-appearance: none;
   padding: $base-spacing;
   //paint
-  font-weight: bold;
-  background-color: transparent;
+  @include box-shadow(.25rem, ', inset 0 0 0 .1rem #{$white}, inset 0 0 0 .2rem currentColor');
+  background-color: $white;
   border-radius: 1rem;
   border: 0;
-  box-shadow: 0 0 0 0 currentColor, inset 0 0 0 .15rem currentColor;
   color: currentColor;
+  font-weight: bold;
   outline: none;
-  transition: box-shadow .2s;
+  transition: box-shadow .2s, background-color .1s;
 
-  &:focus,
   &:hover {
-    box-shadow: 0 0 0 .25rem currentColor, inset 0 0 0 0 currentColor;
+    @include box-shadow(.25rem, ', inset 0 0 0 .1rem #{$white}, inset 0 0 0 .3rem currentColor');
   }
 
   &:active {
-    box-shadow: 0 0 0 .25rem currentColor, inset 0 0 0 .15rem currentColor;
+    @include box-shadow(0, ', inset 0 0 0 .1rem #{$white}, inset 0 0 0 .2rem currentColor');
+    background-color: currentColor;
   }
 }

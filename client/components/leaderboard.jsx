@@ -13,14 +13,14 @@ var Leaderboard = React.createClass({
         <table>
           <thead>
             <tr>
-              <th className="rank-heading"><i className="fa fa-certificate"></i></th>
+              <th className="rank-heading">✹</th>
               <th className="name-heading">Name </th>
-              <th className="elo-heading">Elo <i className="fa fa-line-chart"></i></th>
+              <th className="elo-heading">&sum;&int;&omicron;</th>
               <th className="winlose">
-                <i className="win-heading fa fa-trophy"></i> &middot; <i className="lose-heading fa fa-frown-o"></i>
+                <span className="win-heading">W</span> &middot; <span className="lose-heading">L</span>
               </th>
               <th className="percent-heading">%</th>
-              <th className="streak-heading"><i className="fa fa-fire"></i></th>
+              <th className="streak-heading">Hot</th>
               <th className="lastten-heading">L10</th>
             </tr>
           </thead>
@@ -59,25 +59,25 @@ var Leaderboard = React.createClass({
     switch(tier) {
       case 1:
         tierName = 'diamond';
-        tierIcon = 'diamond';
+        tierIcon = 'C';
         break;
       case 2:
         tierName = 'gold';
-        tierIcon = 'trophy';
+        tierIcon = 'Au';
         break;
       case 3:
         tierName = 'silver';
-        tierIcon = 'shield';
+        tierIcon = 'Ag';
         break;
       case 4:
         tierName = 'bronze';
-        tierIcon = 'circle';
+        tierIcon = 'Cu';
         break;
     }
 
     return (
-      <tr className={'great-primer tier tier-' + tierName} key={'tier-' + tier + '-header'}>
-        <td colSpan={columns}>{tierName} &middot; <i className={'fa fa-' + tierIcon} aria-hidden="true"></i></td>
+      <tr className={'tier tier-' + tierName} key={'tier-' + tier + '-header'}>
+        <td colSpan={columns}>{tierName}<sup><b> {tierIcon}</b></sup></td>
       </tr>
     );
   },
@@ -91,7 +91,7 @@ var Leaderboard = React.createClass({
     return (
       <tr key={player.id} className={rowClass} data-player-id={player.id}>
         <td className="rank">{this.rank(player)}</td>
-        <td className="name">{player.name} {this.playerEloDelta(player)}</td>
+        <td className="name great-primer">{player.name} {this.playerEloDelta(player)}</td>
         <td className="elo">{player.elo}</td>
         <td className="winlose">
           <span className="win">{player.wins}</span> &middot; <span className="lose">{player.losses}</span>
@@ -104,7 +104,7 @@ var Leaderboard = React.createClass({
   },
   rank: function(player) {
     if (player.provisional) {
-      return 'P';
+      return ('P');
     } else {
       return player.rank;
     }
@@ -121,7 +121,10 @@ var Leaderboard = React.createClass({
       } else {
         var percent = player.wins / totalGames;
         var fixed = percent.toFixed(2);
-        return Number(fixed.slice(2)) + '%';
+        var finalzedSlice = Number(fixed.slice(2));
+        return (
+          <span>{finalzedSlice}<sup>%</sup></span>
+        );
       }
     } else {
       return '-';
@@ -130,9 +133,13 @@ var Leaderboard = React.createClass({
   playerEloDelta: function(player) {
     if ('eloDelta' in player) {
       if (player.eloDelta >= 0) { // gained elo
-        return (<span>({player.eloDelta})</span>);
+        return (
+          <span>({player.eloDelta})</span>
+        );
       } else { // lost elo
-        return (<span>({player.eloDelta})</span>);
+        return (
+          <span>({player.eloDelta})</span>
+        );
       }
     }
   },

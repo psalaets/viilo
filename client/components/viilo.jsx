@@ -30,7 +30,7 @@ var Viilo = React.createClass({
         <div data-layout="main-page">
           <header data-area="title">
             <div className="wrapper">
-              <h2 className="trafalgar" onClick={this.toggleMainOverlayState}>Rankings &middot; Season 3</h2>
+              <h2 className="trafalgar" onClick={this.toggleMainOverlayState}>Season 3 <span className="subtitle double-pica">Rankings</span></h2>
             </div>
           </header>
           <main data-area="main">

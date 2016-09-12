@@ -57,8 +57,9 @@
 
   .tier {
     //currentColor picks up on the set 'color'
-    border-color: currentColor;
-    border-top-width: 2px;
+    border-top: 2px solid currentColor;
+    margin: 0;
+    padding: 0;
     text-transform: capitalize;
   }
 
@@ -82,7 +83,7 @@
     color: $orange;
   }
   //disableing for mobile view to save space.
-  @media (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-tablet) {
+  @media all and (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-tablet) {
     .percent,
     .percent-heading,
     .lastten,

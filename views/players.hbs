@@ -1,30 +1,21 @@
-<h2>Add Player</h2>
-
-{{#if success}}
-Success: {{success}}
-{{/if}}
-
-{{#if error}}
-Error: {{error}}
-{{/if}}
-
+<h2 class="canon">Add Player</h2>
 <form action="/players" method="POST">
-    <label>
-        Name
-        <input type="text" name="name">
-    </label>
+    <label for="player-add">Name</label>
+    <input id="player-add" type="text" name="name">
     <input type="submit" value="Add">
 </form>
 
-<h2>Players</h2>
+{{#if success}}
+  Success: {{success}}
+{{/if}}
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
+{{#if error}}
+  Error: {{error}}
+{{/if}}
+<hr>
+<h2 class="canon">Player List</h2>
+<ul>
   {{#each players}}
-    <tr>
-      <td>{{name}}</td>
-    </tr>
+    <li>{{name}}</li>
   {{/each}}
-</table>
+</ul>

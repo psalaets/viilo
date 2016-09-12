@@ -142,9 +142,11 @@ $debug-layout-outline: #000fff;
 $debug-area-outline: #f00;
 $debug-wrapper-outline: #ffa500;
 
-[data-layout~="debug"] {
-  outline: 1px solid $debug-layout-outline;
-  outline-offset: 0;
+[data-debug-layout] {
+  [data-layout] {
+    outline: 1px solid $debug-layout-outline;
+    outline-offset: 0;
+  }
 
   .wrapper {
     outline: 1px solid $debug-wrapper-outline;
@@ -155,7 +157,6 @@ $debug-wrapper-outline: #ffa500;
     outline-offset: -2px;
   }
 }
-
 ///////////////////////////////////////////////////////////////////////////////
 // Layout Tools
 ///////////////////////////////////////////////////////////////////////////////

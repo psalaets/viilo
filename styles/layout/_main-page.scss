@@ -59,6 +59,35 @@ $main-page: (
           )
         )
       )
+    ),
+    laptop: (
+      size: $breakpoint-laptop,
+      area: (
+        title: (
+          grow: 0,
+          shrink: 0,
+          basis: 100%,
+          order: 1,
+          margin: (
+            bottom: true,
+            left: 15%,
+            right: 15%,
+            top: 7rem
+          )
+        ),
+        main: (
+          grow: 0,
+          shrink: 0,
+          basis: 100%,
+          order: 1,
+          margin: (
+            bottom: true,
+            left: 15%,
+            right: 15%,
+            top: true
+          )
+        )
+      )
     )
   )
 );

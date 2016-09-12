@@ -12,14 +12,14 @@
   }
 
   button {
-    color: $white;
+    color: $blue;
   }
 
   select,
   button {
     width: 100%;
 
-    @media (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-tablet) {
+    @media all and (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-tablet) {
       padding: .5rem 1rem;
     }
   }

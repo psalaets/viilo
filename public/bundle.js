@@ -95,14 +95,14 @@ var Leaderboard = React.createClass({displayName: "Leaderboard",
         React.createElement("table", null, 
           React.createElement("thead", null, 
             React.createElement("tr", null, 
-              React.createElement("th", {className: "rank-heading"}, React.createElement("i", {className: "fa fa-certificate"})), 
+              React.createElement("th", {className: "rank-heading"}, "✹"), 
               React.createElement("th", {className: "name-heading"}, "Name "), 
-              React.createElement("th", {className: "elo-heading"}, "Elo ", React.createElement("i", {className: "fa fa-line-chart"})), 
+              React.createElement("th", {className: "elo-heading"}, "∑∫ο"), 
               React.createElement("th", {className: "winlose"}, 
-                React.createElement("i", {className: "win-heading fa fa-trophy"}), " · ", React.createElement("i", {className: "lose-heading fa fa-frown-o"})
+                React.createElement("span", {className: "win-heading"}, "W"), " · ", React.createElement("span", {className: "lose-heading"}, "L")
               ), 
               React.createElement("th", {className: "percent-heading"}, "%"), 
-              React.createElement("th", {className: "streak-heading"}, React.createElement("i", {className: "fa fa-fire"})), 
+              React.createElement("th", {className: "streak-heading"}, "Hot"), 
               React.createElement("th", {className: "lastten-heading"}, "L10")
             )
           ), 
@@ -141,25 +141,25 @@ var Leaderboard = React.createClass({displayName: "Leaderboard",
     switch(tier) {
       case 1:
         tierName = 'diamond';
-        tierIcon = 'diamond';
+        tierIcon = 'C';
         break;
       case 2:
         tierName = 'gold';
-        tierIcon = 'trophy';
+        tierIcon = 'Au';
         break;
       case 3:
         tierName = 'silver';
-        tierIcon = 'shield';
+        tierIcon = 'Ag';
         break;
       case 4:
         tierName = 'bronze';
-        tierIcon = 'circle';
+        tierIcon = 'Cu';
         break;
     }
 
     return (
-      React.createElement("tr", {className: 'great-primer tier tier-' + tierName, key: 'tier-' + tier + '-header'}, 
-        React.createElement("td", {colSpan: columns}, tierName, " · ", React.createElement("i", {className: 'fa fa-' + tierIcon, "aria-hidden": "true"}))
+      React.createElement("tr", {className: 'tier tier-' + tierName, key: 'tier-' + tier + '-header'}, 
+        React.createElement("td", {colSpan: columns}, tierName, React.createElement("sup", null, React.createElement("b", null, " ", tierIcon)))
       )
     );
   },
@@ -173,7 +173,7 @@ var Leaderboard = React.createClass({displayName: "Leaderboard",
     return (
       React.createElement("tr", {key: player.id, className: rowClass, "data-player-id": player.id}, 
         React.createElement("td", {className: "rank"}, this.rank(player)), 
-        React.createElement("td", {className: "name"}, player.name, " ", this.playerEloDelta(player)), 
+        React.createElement("td", {className: "name great-primer"}, player.name, " ", this.playerEloDelta(player)), 
         React.createElement("td", {className: "elo"}, player.elo), 
         React.createElement("td", {className: "winlose"}, 
           React.createElement("span", {className: "win"}, player.wins), " · ", React.createElement("span", {className: "lose"}, player.losses)
@@ -186,7 +186,7 @@ var Leaderboard = React.createClass({displayName: "Leaderboard",
   },
   rank: function(player) {
     if (player.provisional) {
-      return 'P';
+      return ('P');
     } else {
       return player.rank;
     }
@@ -203,7 +203,10 @@ var Leaderboard = React.createClass({displayName: "Leaderboard",
       } else {
         var percent = player.wins / totalGames;
         var fixed = percent.toFixed(2);
-        return Number(fixed.slice(2)) + '%';
+        var finalzedSlice = Number(fixed.slice(2));
+        return (
+          React.createElement("span", null, finalzedSlice, React.createElement("sup", null, "%"))
+        );
       }
     } else {
       return '-';
@@ -212,9 +215,13 @@ var Leaderboard = React.createClass({displayName: "Leaderboard",
   playerEloDelta: function(player) {
     if ('eloDelta' in player) {
       if (player.eloDelta >= 0) { // gained elo
-        return (React.createElement("span", null, "(", player.eloDelta, ")"));
+        return (
+          React.createElement("span", null, "(", player.eloDelta, ")")
+        );
       } else { // lost elo
-        return (React.createElement("span", null, "(", player.eloDelta, ")"));
+        return (
+          React.createElement("span", null, "(", player.eloDelta, ")")
+        );
       }
     }
   },
@@ -485,7 +492,7 @@ var Viilo = React.createClass({displayName: "Viilo",
         React.createElement("div", {"data-layout": "main-page"}, 
           React.createElement("header", {"data-area": "title"}, 
             React.createElement("div", {className: "wrapper"}, 
-              React.createElement("h2", {className: "trafalgar", onClick: this.toggleMainOverlayState}, "Rankings · Season 3")
+              React.createElement("h2", {className: "trafalgar", onClick: this.toggleMainOverlayState}, "Season 3 ", React.createElement("span", {className: "subtitle double-pica"}, "Rankings"))
             )
           ), 
           React.createElement("main", {"data-area": "main"}, 
