@@ -92,4 +92,4 @@ $main-page: (
   )
 );
 
-@include semantic-layout($main-page);
+@include logjam($main-page);

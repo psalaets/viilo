@@ -7,7 +7,7 @@
 
 // Tools: Default mixins and functions.
 @import 'tools/box-shadow';
-@import 'tools/layout';
+@import '../node_modules/logjam-scss/logjam';
 // Generic: Ground-zero styles (Normalize.css, resets, box-sizing).
 @import 'generic/animation';
 @import 'generic/normalize';

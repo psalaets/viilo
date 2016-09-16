@@ -1,6 +1,6 @@
 $overlay: (
   layout-name: 'overlay',
-  margin-size: $base-spacing,
+  margin-size: 2rem,
   breakpoints: (
     mobile-small: (
       size: $breakpoint-mobile-small,
@@ -87,4 +87,4 @@ $overlay: (
   )
 );
 
-@include semantic-layout($overlay);
+@include logjam($overlay);
