@@ -356,6 +356,8 @@ select {
   padding: 0.5rem 1.5rem; }
 
 @media all and (min-width: 320px) and (max-width: 768px) {
+  [data-layout~="main-page"] .wrapper {
+    margin: 0.5rem; }
   [data-layout~="main-page"] > [data-area~="title"] {
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
@@ -370,8 +372,7 @@ select {
     -ms-flex-order: 0;
     order: 0; }
     [data-layout~="main-page"] > [data-area~="title"] .wrapper {
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
+      margin-bottom: 0;
       margin-top: 7rem; }
   [data-layout~="main-page"] > [data-area~="main"] {
     -webkit-flex-basis: 100%;
@@ -387,10 +388,12 @@ select {
     -ms-flex-order: 0;
     order: 0; }
     [data-layout~="main-page"] > [data-area~="main"] .wrapper {
-      margin-bottom: 0.5rem;
-      margin-top: 0.5rem; } }
+      margin-left: 0;
+      margin-right: 0; } }
 
 @media all and (min-width: 769px) and (max-width: 1024px) {
+  [data-layout~="main-page"] .wrapper {
+    margin: 0.5rem; }
   [data-layout~="main-page"] > [data-area~="title"] {
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
@@ -405,9 +408,6 @@ select {
     -ms-flex-order: 1;
     order: 1; }
     [data-layout~="main-page"] > [data-area~="title"] .wrapper {
-      margin-bottom: 0.5rem;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
       margin-top: 7rem; }
   [data-layout~="main-page"] > [data-area~="main"] {
     -webkit-flex-basis: 100%;
@@ -421,14 +421,11 @@ select {
     flex-shrink: 0;
     -webkit-order: 1;
     -ms-flex-order: 1;
-    order: 1; }
-    [data-layout~="main-page"] > [data-area~="main"] .wrapper {
-      margin-bottom: 0.5rem;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      margin-top: 0.5rem; } }
+    order: 1; } }
 
 @media all and (min-width: 1025px) {
+  [data-layout~="main-page"] .wrapper {
+    margin: 0.5rem; }
   [data-layout~="main-page"] > [data-area~="title"] {
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
@@ -443,7 +440,6 @@ select {
     -ms-flex-order: 1;
     order: 1; }
     [data-layout~="main-page"] > [data-area~="title"] .wrapper {
-      margin-bottom: 0.5rem;
       margin-left: 15%;
       margin-right: 15%;
       margin-top: 7rem; }
@@ -461,12 +457,12 @@ select {
     -ms-flex-order: 1;
     order: 1; }
     [data-layout~="main-page"] > [data-area~="main"] .wrapper {
-      margin-bottom: 0.5rem;
       margin-left: 15%;
-      margin-right: 15%;
-      margin-top: 0.5rem; } }
+      margin-right: 15%; } }
 
 @media all and (min-width: 320px) and (max-width: 768px) {
+  [data-layout~="overlay"] .wrapper {
+    margin: 1rem; }
   [data-layout~="overlay"] > [data-area~="title"] {
     -webkit-flex-basis: 0%;
     -ms-flex-preferred-size: 0%;
@@ -480,11 +476,6 @@ select {
     -webkit-order: 0;
     -ms-flex-order: 0;
     order: 0; }
-    [data-layout~="overlay"] > [data-area~="title"] .wrapper {
-      margin-bottom: 1rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
-      margin-top: 1rem; }
   [data-layout~="overlay"] > [data-area~="close"] {
     -webkit-flex-basis: 7rem;
     -ms-flex-preferred-size: 7rem;
@@ -498,11 +489,6 @@ select {
     -webkit-order: 0;
     -ms-flex-order: 0;
     order: 0; }
-    [data-layout~="overlay"] > [data-area~="close"] .wrapper {
-      margin-bottom: 1rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
-      margin-top: 1rem; }
   [data-layout~="overlay"] > [data-area~="main"] {
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
@@ -517,11 +503,11 @@ select {
     -ms-flex-order: 1;
     order: 1; }
     [data-layout~="overlay"] > [data-area~="main"] .wrapper {
-      margin-bottom: 1rem;
-      margin-left: 1rem;
-      margin-right: 1rem; } }
+      margin-top: 0; } }
 
 @media all and (min-width: 769px) {
+  [data-layout~="overlay"] .wrapper {
+    margin: 1rem; }
   [data-layout~="overlay"] > [data-area~="title"] {
     -webkit-flex-basis: 0%;
     -ms-flex-preferred-size: 0%;
@@ -535,11 +521,6 @@ select {
     -webkit-order: 0;
     -ms-flex-order: 0;
     order: 0; }
-    [data-layout~="overlay"] > [data-area~="title"] .wrapper {
-      margin-bottom: 1rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
-      margin-top: 1rem; }
   [data-layout~="overlay"] > [data-area~="close"] {
     -webkit-flex-basis: 7rem;
     -ms-flex-preferred-size: 7rem;
@@ -553,11 +534,6 @@ select {
     -webkit-order: 0;
     -ms-flex-order: 0;
     order: 0; }
-    [data-layout~="overlay"] > [data-area~="close"] .wrapper {
-      margin-bottom: 1rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
-      margin-top: 1rem; }
   [data-layout~="overlay"] > [data-area~="main"] {
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
@@ -572,11 +548,11 @@ select {
     -ms-flex-order: 1;
     order: 1; }
     [data-layout~="overlay"] > [data-area~="main"] .wrapper {
-      margin-bottom: 1rem;
-      margin-left: 1rem;
-      margin-right: 1rem; } }
+      margin-top: 0; } }
 
 @media all and (min-width: 320px) and (max-width: 768px) {
+  [data-layout~="triple"] .wrapper {
+    margin: 0.5rem; }
   [data-layout~="triple"] > [data-area~="select"] {
     -webkit-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
@@ -611,9 +587,12 @@ select {
     [data-layout~="triple"] > [data-area~="button"] .wrapper {
       margin-bottom: 0.5rem;
       margin-left: 0.5rem;
-      margin-right: 0.5rem; } }
+      margin-right: 0.5rem;
+      margin-top: 0; } }
 
 @media all and (min-width: 769px) {
+  [data-layout~="triple"] .wrapper {
+    margin: 0.5rem; }
   [data-layout~="triple"] > [data-area~="select"] {
     -webkit-flex-basis: 33.33%;
     -ms-flex-preferred-size: 33.33%;
@@ -628,10 +607,7 @@ select {
     -ms-flex-order: 1;
     order: 1; }
     [data-layout~="triple"] > [data-area~="select"] .wrapper {
-      margin-bottom: 0.5rem;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      margin-top: 0.5rem; }
+      margin-right: 0; }
   [data-layout~="triple"] > [data-area~="button"] {
     -webkit-flex-basis: 33.33%;
     -ms-flex-preferred-size: 33.33%;
@@ -644,12 +620,7 @@ select {
     flex-shrink: 0;
     -webkit-order: 1;
     -ms-flex-order: 1;
-    order: 1; }
-    [data-layout~="triple"] > [data-area~="button"] .wrapper {
-      margin-bottom: 0.5rem;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      margin-top: 0.5rem; } }
+    order: 1; } }
 
 [data-leaderboard] .provisional {
   opacity: .2; }
